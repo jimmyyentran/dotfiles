@@ -1,0 +1,33 @@
+#~/.bash_aliases
+
+# from the online tutorial
+alias today='date +"%A, %B %-d, %Y"'
+
+# This is to make sure Eclim runs in background
+alias eclimd='eclimd -Dosgi.instance.area.default=@user.home/Java &'
+
+# shut down eclim
+alias sde='eclim -command shutdown'
+
+# When removing show information
+alias rm='rm -v'
+
+# Vim shortcut
+alias v='vim '
+
+# Easy access or ~/.bashrc and ~./bash_aliases and ~/.vimrc
+alias brc='~/.bashrc'
+alias ba='~/.bash_aliases'
+alias vrc='~/.vimrc'
+
+# Easy access to ftplugin java2.vim
+alias jv2='~/.vim/eclim/ftplugin/java/java_2.vim'
+
+# Go to directory to /Java/LibraryGenerator_MVC/src
+alias wss='cd ~/Java/LibraryGenerator_MVC/src/main/java/'
+alias ws='cd ~/Java/LibraryGenerator_MVC'
+# Display most used commands
+# alias ms="history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' | grep -v "./" | column -c3 -s " " -t | sort -nr | nl |  head -n10"
+
+# Shutdown
+alias shutdown='sudo shutdown -h now'
