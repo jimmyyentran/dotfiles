@@ -1,5 +1,8 @@
+# extend globbing
+setopt extended_glob
+
 # shortcut to this dotfiles path is $ZSH
-export ZSH=$HOME/.dotfiles
+export ZSHDOT=$HOME/.dotfiles
 
 # your project folder that we can `c [tab]` to
 export PROJECTS=~/Code
@@ -14,7 +17,13 @@ fi
 
 # all of our zsh files
 typeset -U config_files
-config_files=($ZSH/**/*.zsh)
+config_files=($ZSHDOT/^oh-my-zsh/*.zsh)
+
+#print files sourced
+#for file in $config_files
+#do
+#  print -l $file
+#done
 
 # load the path files
 for file in ${(M)config_files:#*/path.zsh}
@@ -27,6 +36,9 @@ for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
   source $file
 done
+
+# oh-my-zsh
+source $ZSHDOT/zsh/.zshrc
 
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit
