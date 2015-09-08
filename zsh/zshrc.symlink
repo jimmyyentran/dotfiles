@@ -15,7 +15,8 @@ then
   source ~/.localrc
 fi
 
-# all of our zsh files
+# all of our zsh files except files within oh-my-zsh
+# ohmy.zsh is sourced here
 typeset -U config_files
 config_files=($ZSHDOT/^oh-my-zsh/*.zsh)
 
@@ -36,9 +37,6 @@ for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
 do
   source $file
 done
-
-# oh-my-zsh
-source $ZSHDOT/zsh/.zshrc
 
 # initialize autocomplete here, otherwise functions won't be loaded
 autoload -U compinit

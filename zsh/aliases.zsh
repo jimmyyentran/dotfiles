@@ -1,2 +1,6 @@
 alias reload!='. ~/.zshrc'
 alias v='vim'
+alias ws='~/Java/LibraryGenerator_MVC'
+alias wss='~/Java/LibraryGenerator_MVC/src/main/java/'
+alias zrc='~/.dotfiles/zsh/'
+alias eclimd='eclimd -Dosgi.instance.area.default=@user.home/Java &'

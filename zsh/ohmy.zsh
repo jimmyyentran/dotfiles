@@ -54,8 +54,12 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git zsh-syntax-highlighting)
 
 # User configuration
-
-export PATH="/home/jt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/jt/bin/apache-maven-3.3.3/bin:/home/jt/bin/gradle-2.6/bin"
+# set ~/bin
+extra_directories=($HOME/bin/*/bin)
+extra_path=$(printf "%s:" "${extra_directories[@]}")
+# export PATH="/home/jt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/jt/bin/apache-maven-3.3.3/bin:/home/jt/bin/gradle-2.6/bin"
+export PATH="${extra_path}${PATH}"
+export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/jre"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
