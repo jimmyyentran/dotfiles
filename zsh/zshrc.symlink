@@ -1,6 +1,11 @@
 # extend globbing
 setopt extended_glob
 
+# unset flow control to use ctrl-s
+# unsetopt flowcontrol
+stty stop undef
+stty start undef
+
 # shortcut to this dotfiles path is $ZSH
 export ZSHDOT=$HOME/.dotfiles
 

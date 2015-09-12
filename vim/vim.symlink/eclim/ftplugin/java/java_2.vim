@@ -15,6 +15,11 @@ nnoremap <silent> <buffer> <leader>s :JavaSearchContext<cr>
 "black sign columns
 highlight SignColumn ctermbg=black ctermfg=white
 
+" Easytags highlight
+highlight javaClassTag ctermfg=28 cterm=bold
+highlight javaMethodTag ctermfg=28
+highlight javaInterfaceTag ctermfg=128 cterm=bold
+
 "cooler signs
 let g:EclimQuickfixSignText = "\u25b8"
 let g:EclimLoclistSignText = "\u21e8"
@@ -47,6 +52,8 @@ let java_highlight_functions=1
 let java_minlines = 150
 
 " set fold method to fold class and methods only
-set foldmethod=syntax
-set foldnestmax=2           "Only fold methods after class declarations"
-set foldlevel=1             "Opens the first level"
+setlocal foldmethod=syntax
+setlocal foldnestmax=2           "Only fold methods after class declarations"
+setlocal foldlevel=1             "Opens the first level"
+
+
