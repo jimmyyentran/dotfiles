@@ -82,7 +82,7 @@ set foldmethod=marker
 highlight Folded cterm=bold ctermfg=darkgrey ctermbg=none
 highlight FoldColumn ctermfg=darkgrey ctermbg=black
 "set scrolloff settings to keep cursor in the middle
-set so=999
+" set so=999
 "make time out time faster for esc(this is for vim-airline)
 set ttimeoutlen=50
 "make vim transparent
