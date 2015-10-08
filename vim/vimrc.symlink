@@ -27,7 +27,7 @@ syntax on
 filetype on
 filetype plugin indent on
 filetype plugin on
-" colorscheme monokai
+colorscheme desert
 set t_Co=256
 set encoding=utf-8
 "set term=xterm-256color
