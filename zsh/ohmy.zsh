@@ -64,7 +64,6 @@ plugins=(git zsh-syntax-highlighting)
 # export PATH="/home/jt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/jt/bin/apache-maven-3.3.3/bin:/home/jt/bin/gradle-2.6/bin"
 # export PATH="${extra_path}${PATH}"
 # export PATH="/usr/local/texlive/2015/bin/x86_64-linux:$PATH"
-export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/jre"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
