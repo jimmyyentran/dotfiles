@@ -5,7 +5,7 @@ set smartindent
 set number
 " set scrolloff=999
 set contentassistmode
-set relativenumber
+" set relativenumber
 
 "==================================================
 " Basic key mappings
