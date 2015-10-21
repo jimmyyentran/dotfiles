@@ -185,8 +185,11 @@ set wildignore+=*/tmp/*,*.so,*.zip,*/vendor/*,*/\.git/*,*.swp,*.class
 set wildignore+=*.png,*.jpg,*.gif
 " }}}
 " Delimate Plugin {{{2
-au FileType java let delimitMate_expand_cr = 1
-au FileType java let delimitMate_expand_space = 1
+" au FileType java let delimitMate_expand_cr = 1
+" au FileType java let delimitMate_expand_space = 1
+let delimitMate_expand_cr = 1
+let delimitMate_expand_space = 1
+
 " }}}
 " NERDcommenter Plugin {{{2
 let NERDCreateDefaultMappings = 0           "Don't use any default mappings
