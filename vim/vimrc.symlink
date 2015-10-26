@@ -337,4 +337,11 @@ noremap ; :
 noremap : ;
 vnoremap ; :
 vnoremap : ;
+
+"format
+noremap <leader>f mzgg=G`z
+
+"run
+noremap <leader>cp :!make<cr>
+noremap <leader>ct :!make ct<cr>
 " }}}
