@@ -18,6 +18,7 @@ Plugin 'sickill/vim-monokai'
 Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
 Plugin 'bling/vim-airline'
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
 " }}}
@@ -247,6 +248,9 @@ let g:airline_powerline_fonts = 1
 let g:easytags_auto_highlight = 0
 let g:easytags_auto_update = 0
 " }}}
+" Vim-EasyMotion Pluguin {{{2
+let g:EasyMotion_do_mapping = 0 "disable default
+" }}}
 "Mappings{{{1
 " Index ctags from any project, including those outside Rails"
 map <Leader>ct :!ctags -R .<CR>
@@ -256,7 +260,7 @@ nnoremap z za
 vnoremap z za
 
 " Switch between the last two files
-nnoremap <leader><leader> <c-^>
+" nnoremap <leader><leader> <c-^>
 
 " Arrow keys to change window size
 nnoremap <Left> :vertical resize -3<cr>
@@ -344,4 +348,12 @@ noremap <leader>f mzgg=G`z
 "run
 noremap <leader>cp :!make<cr>
 noremap <leader>ct :!make ct<cr>
+
+"EasyMotion
+nmap s <Plug>(easymotion-s)
+let g:EasyMotion_smartcase = 1
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+
+
 " }}}
