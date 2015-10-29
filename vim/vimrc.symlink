@@ -19,6 +19,8 @@ Plugin 'xolox/vim-easytags'
 Plugin 'xolox/vim-misc'
 Plugin 'bling/vim-airline'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 call vundle#end()
 " }}}
@@ -248,8 +250,14 @@ let g:airline_powerline_fonts = 1
 let g:easytags_auto_highlight = 0
 let g:easytags_auto_update = 0
 " }}}
-" Vim-EasyMotion Pluguin {{{2
+" Vim-EasyMotion Plugin {{{2
 let g:EasyMotion_do_mapping = 0 "disable default
+" }}}
+" UltiSnips Plugin {{{2
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsEditSplit="vertical"
 " }}}
 "Mappings{{{1
 " Index ctags from any project, including those outside Rails"
