@@ -3,26 +3,52 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" set rtp+=~/.vim/bundle/Vundle.vim
+" set rtp+=~/.vim/bundle/lldb.nvim
+" call vundle#begin()
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'kien/ctrlp.vim'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Raimondi/delimitMate'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'rking/ag.vim'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'sickill/vim-monokai'
-Plugin 'xolox/vim-easytags'
-Plugin 'xolox/vim-misc'
-Plugin 'bling/vim-airline'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+" Plugin 'VundleVim/Vundle.vim'
+" Plugin 'scrooloose/nerdtree.git'
+" Plugin 'kien/ctrlp.vim'
+" Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Raimondi/delimitMate'
+" Plugin 'scrooloose/nerdcommenter'
+" Plugin 'rking/ag.vim'
+" Plugin 'jistr/vim-nerdtree-tabs'
+" Plugin 'sickill/vim-monokai'
+" Plugin 'xolox/vim-easytags'
+" Plugin 'xolox/vim-misc'
+" Plugin 'bling/vim-airline'
+" Plugin 'easymotion/vim-easymotion'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'honza/vim-snippets'
 
-call vundle#end()
+" call vundle#end()
+" }}}
+"Vim-Plug{{{1
+call plug#begin('~/.vim/bundle')
+Plug 'VundleVim/Vundle.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'kien/ctrlp.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'Raimondi/delimitMate'
+Plug 'scrooloose/nerdcommenter'
+Plug 'rking/ag.vim'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
+Plug 'bling/vim-airline'
+Plug 'easymotion/vim-easymotion'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'benekastah/neomake'
+Plug 'vim-scripts/SearchComplete'
+Plug 'tpope/vim-surround'
+Plug 'critiqjo/lldb.nvim'
+Plug 'dpzmick/neovim-hackernews'
+Plug 'tpope/vim-fugitive'
+call plug#end()
+
 " }}}
 "Settings{{{1
 let mapleader = "\<Space>"
@@ -32,7 +58,7 @@ filetype plugin indent on
 filetype plugin on
 colorscheme desert
 set t_Co=256
-set encoding=utf-8
+" set encoding=utf-8
 "set term=xterm-256color
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
@@ -168,16 +194,22 @@ augroup END
 " Recognize gradle as groovy file
 au BufNewFile,BufRead *.gradle setf groovy
 " }}}
+" NeoVim Configs {{{1
+if has('nvim')
+    tnoremap <Esc> <c-\><c-n>
+    noremap te :vs <bar> term<cr>
+endif
+" }}}
 "Plugins"{{{1
 " Pathogen plugin {{{2
-execute pathogen#infect()
+" execute pathogen#infect()
 " }}}
 " Eclim Plugin {{{2
 let g:EclimCompletionMethod = 'omnifunc'
 " }}}
 " CtrlP plugin {{{2
 "Map CtrlP to Java directory
-noremap <C-P> <Esc>:CtrlP /home/jt/Java/<cr>
+" noremap <C-P> <Esc>:CtrlP /home/jt/Java/<cr>
 "set no max file limit"
 let g:ctrlp_max_files = 0
 " let g:ctrlp_max_files = 50000
@@ -211,6 +243,9 @@ let NERDTreeShowBookmarks=1
 " I decided not to enable white list bc I like YCM for generic file directory
 " autofill
 " let g:ycm_filetype_whitelist = {'java': 1}
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" set syntax off
+let g:ycm_show_diagnostics_ui = 0
 " }}}
 " Syntaxtic Plugin (Uninstalled) {{{2
 " configure syntastic syntax checking to check on open as well as save
@@ -259,6 +294,9 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 " }}}
+" NeoMake Plugin {{{2
+autocmd! BufWritePost * Neomake
+let g:neomake_open_list = 2
 "Mappings{{{1
 " Index ctags from any project, including those outside Rails"
 map <Leader>ct :!ctags -R .<CR>
@@ -362,5 +400,6 @@ nmap s <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
+
 
 " }}}
