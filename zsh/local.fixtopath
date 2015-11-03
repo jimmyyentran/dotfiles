@@ -1,4 +1,4 @@
 alias ws='~/workspace/LG'
 alias wss='~/workspace/LG/src/main/java'
-export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/jre"
+export JAVA_HOME="/usr/lib/jvm/java-7-openjdk-amd64/"
 export PATH="$PATH:/usr/local/texlive/2015/bin/x86_64-linux"
