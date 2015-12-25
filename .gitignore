@@ -10,3 +10,5 @@ git/gitconfig.symlink
 /zsh/local.zsh
 
 tags
+
+vim/vim.symlink/bundle
