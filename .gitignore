@@ -12,3 +12,5 @@ git/gitconfig.symlink
 tags
 
 vim/vim.symlink/bundle
+vim/vim.symlink/autoload
+

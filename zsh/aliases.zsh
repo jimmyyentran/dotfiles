@@ -14,3 +14,4 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias make='nocorrect make' #stop make from autocorrecting things
 alias sag="sudo apt-get"
+alias rs="killall plasmashell ; kstart plasmashell &>/dev/null" #restart KDE5
