@@ -331,9 +331,9 @@ nnoremap <silent> g0 :tabfirst<cr>
 nnoremap <silent> g$ :tablast<cr>
 
 "double tap without entering insert mode
-nnoremap oo o<Esc>
-nnoremap OO O<Esc>
-inoremap OO <Esc>O
+" nnoremap oo o<Esc>
+" nnoremap OO O<Esc>
+" inoremap OO <Esc>O
 nnoremap <CR> o
 
 "Ctrl-s to save current document
