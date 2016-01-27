@@ -120,3 +120,4 @@ function cs () {
 
 # Allow to use CTRL-S in vim
 stty -ixon
+export PGDATA=/tmp/jt/data
