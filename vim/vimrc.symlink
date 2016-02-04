@@ -34,9 +34,11 @@ Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'rking/ag.vim'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'xolox/vim-easytags'
+" Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
-Plug 'bling/vim-airline'
+" Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -46,6 +48,8 @@ Plug 'tpope/vim-surround'
 Plug 'critiqjo/lldb.nvim'
 Plug 'dpzmick/neovim-hackernews'
 Plug 'tpope/vim-fugitive'
+Plug 'hdima/python-syntax'
+Plug 'christoomey/vim-tmux-navigator'
 call plug#end()
 
 " }}}
@@ -247,6 +251,7 @@ let NERDTreeShowBookmarks=1
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 " set syntax off
 let g:ycm_show_diagnostics_ui = 0
+" let g:ycm_autoclose_preview_window_after_completion=1
 " }}}
 " Syntaxtic Plugin (Uninstalled) {{{2
 " configure syntastic syntax checking to check on open as well as save
@@ -269,7 +274,7 @@ if executable('ag')
 endif
 " }}}
 " Airline Plugin {{{2
-let g:airline_theme='molokai'
+let g:airline_theme='luna'
 let g:airline_powerline_fonts = 1
 " This extension uses 'fake' tabs for buffers, which I dislike
 " let g:airline#extensions#tabline#enabled = 1
@@ -298,6 +303,10 @@ let g:UltiSnipsEditSplit="vertical"
 " NeoMake Plugin {{{2
 autocmd! BufWritePost * Neomake
 let g:neomake_open_list = 2
+" }}}
+" Python-Syntax Plugin {{{2
+let python_highlight_all = 1
+" }}}
 "Mappings{{{1
 " Index ctags from any project, including those outside Rails"
 map <Leader>ct :!ctags -R .<CR>
@@ -401,6 +410,8 @@ nmap s <Plug>(easymotion-s)
 let g:EasyMotion_smartcase = 1
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
+
+map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 
 " }}}
