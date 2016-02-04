@@ -140,6 +140,10 @@ install_dotfiles () {
 # setup_gitconfig
 install_dotfiles
 
+if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
+  echo 'Cloning prezto'
+  git clone --recursive https://github.com/jtran064/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+fi
 
 . ~/.zprezto/install
 
