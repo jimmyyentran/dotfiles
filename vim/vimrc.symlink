@@ -1,29 +1,4 @@
 "Jimmy Tran's vimrc
-"Vundle Plugin"{{{1
-set nocompatible
-filetype off
-" set rtp+=~/.vim/bundle/Vundle.vim
-" set rtp+=~/.vim/bundle/lldb.nvim
-" call vundle#begin()
-
-" Plugin 'VundleVim/Vundle.vim'
-" Plugin 'scrooloose/nerdtree.git'
-" Plugin 'kien/ctrlp.vim'
-" Plugin 'Valloric/YouCompleteMe'
-" Plugin 'Raimondi/delimitMate'
-" Plugin 'scrooloose/nerdcommenter'
-" Plugin 'rking/ag.vim'
-" Plugin 'jistr/vim-nerdtree-tabs'
-" Plugin 'sickill/vim-monokai'
-" Plugin 'xolox/vim-easytags'
-" Plugin 'xolox/vim-misc'
-" Plugin 'bling/vim-airline'
-" Plugin 'easymotion/vim-easymotion'
-" Plugin 'SirVer/ultisnips'
-" Plugin 'honza/vim-snippets'
-
-" call vundle#end()
-" }}}
 "Vim-Plug{{{1
 call plug#begin('~/.vim/bundle')
 Plug 'VundleVim/Vundle.vim'
@@ -34,9 +9,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'rking/ag.vim'
 Plug 'jistr/vim-nerdtree-tabs'
-" Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
-" Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'easymotion/vim-easymotion'
@@ -50,21 +23,29 @@ Plug 'dpzmick/neovim-hackernews'
 Plug 'tpope/vim-fugitive'
 Plug 'hdima/python-syntax'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 " }}}
 "Settings{{{1
 let mapleader = "\<Space>"
+" set nocompatible
+" filetype off
 syntax on
 filetype on
 filetype plugin indent on
 filetype plugin on
-colorscheme desert
+set background=dark
+colorscheme solarized
+" let g:solarized_termcolors=256
+" let g:solarized_visibility="high"
+" let g:solarized_contrast="high"
+" colorscheme desert
 "Settings for Konsole
 " highlight Pmenu ctermfg=5 ctermbg=163
-set t_Co=256
+" set t_Co=256
 "set encoding=utf-8
-"set term=xterm-256color
+" set term=xterm-256color
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
@@ -124,6 +105,8 @@ highlight FoldColumn ctermfg=darkgrey ctermbg=black
 set ttimeoutlen=50
 "make vim transparent
 hi Normal ctermbg=none
+
+" source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 " }}}
 "Local config{{{1
 if filereadable($HOME . "/.vimrc.local")
@@ -219,7 +202,7 @@ let g:EclimCompletionMethod = 'omnifunc'
 let g:ctrlp_max_files = 0
 " let g:ctrlp_max_files = 50000
 "search from current directory
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'ra'
 "some ignores
 set wildignore+=*/tmp/*,*.so,*.zip,*/vendor/*,*/\.git/*,*.swp,*.class
 set wildignore+=*.png,*.jpg,*.gif
@@ -412,6 +395,8 @@ map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 
 map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+inoremap <C-d> <esc>lxi
 
 
 " }}}
