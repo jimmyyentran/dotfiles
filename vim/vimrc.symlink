@@ -5,6 +5,7 @@ Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
 Plug 'Valloric/YouCompleteMe'
+Plug 'rdnetto/YCM-Generator', {'branch': 'stable'}
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdcommenter'
 Plug 'rking/ag.vim'
@@ -24,6 +25,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'hdima/python-syntax'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'altercation/vim-colors-solarized'
+" Plug 'klen/python-mode'
 call plug#end()
 
 " }}}
@@ -232,9 +234,14 @@ let NERDTreeShowBookmarks=1
 " autofill
 " let g:ycm_filetype_whitelist = {'java': 1}
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" show auto complete
+let g:ycm_min_num_of_chars_for_completion = 1
+" show auto complete immediately after symbol
+let g:ycm_aut_trigger = 0
 " set syntax off
 let g:ycm_show_diagnostics_ui = 0
 " let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_goto_buffer_command = 'horizontal-split'
 " }}}
 " Syntaxtic Plugin (Uninstalled) {{{2
 " configure syntastic syntax checking to check on open as well as save
@@ -285,11 +292,16 @@ let g:UltiSnipsEditSplit="vertical"
 " }}}
 " NeoMake Plugin {{{2
 autocmd! BufWritePost * Neomake
-let g:neomake_open_list = 2
+" open after two inputs
+" let g:neomake_open_list = 2
 " }}}
 " Python-Syntax Plugin {{{2
 let python_highlight_all = 1
 " }}}
+" Python-mode{{{2
+let g:pymode_rope_completion = 0
+" }}}
+" 
 "Mappings{{{1
 " Index ctags from any project, including those outside Rails"
 map <Leader>ct :!ctags -R .<CR>
@@ -394,9 +406,16 @@ let g:EasyMotion_smartcase = 1
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 
-map <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <leader>gd :YcmCompleter GetDoc<CR>
+nnoremap <leader>gt :YcmCompleter GoTo<CR>
 
-inoremap <C-d> <esc>lxi
+" inoremap <C-d> <esc>lxi
 
 
+
+
+" }}}
+"Command Alias{{{1
+cnoreabbrev vr tabedit ~/.vimrc
 " }}}

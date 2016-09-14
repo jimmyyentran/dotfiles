@@ -1,1 +1,4 @@
 source ~/.vimrc
+
+nnoremap K gt
+nnoremap J gT
