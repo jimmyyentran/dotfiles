@@ -14,3 +14,4 @@ tags
 vim/vim.symlink/bundle
 vim/vim.symlink/autoload
 
+*.DS_Store
