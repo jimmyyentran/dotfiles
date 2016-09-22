@@ -145,7 +145,18 @@ if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
   git clone --recursive https://github.com/jtran064/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 fi
 
-. ~/.zprezto/install
+~/.zprezto/install
+
+echo
+echo "Updating vim plugins"
+echo
+
+# mute process running in background
+vim -c 'PlugInstall' -c ':q' -c ':q' &>/dev/null &
+for job in `jobs -p`
+do
+    wait $job
+done
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
@@ -159,5 +170,4 @@ then
   fi
 fi
 
-echo ''
-echo '  All installed!'
+echo 'All installed!'

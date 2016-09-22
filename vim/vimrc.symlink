@@ -46,7 +46,7 @@ colorscheme solarized
 "Settings for Konsole
 " highlight Pmenu ctermfg=5 ctermbg=163
 " set t_Co=256
-"set encoding=utf-8
+set encoding=utf-8
 " set term=xterm-256color
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
