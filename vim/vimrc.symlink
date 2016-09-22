@@ -38,7 +38,13 @@ filetype on
 filetype plugin indent on
 filetype plugin on
 set background=dark
-colorscheme solarized
+
+" sometimes solarized doesn't exist
+try
+    colorscheme solarized
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme monokai
+endtry
 " let g:solarized_termcolors=256
 " let g:solarized_visibility="high"
 " let g:solarized_contrast="high"
@@ -46,7 +52,12 @@ colorscheme solarized
 "Settings for Konsole
 " highlight Pmenu ctermfg=5 ctermbg=163
 " set t_Co=256
-set encoding=utf-8
+"
+
+" this breaks on nvim
+if has('vim')
+    set encoding=utf-8
+endif
 " set term=xterm-256color
 set backspace=2   " Backspace deletes like most programs in insert mode
 set nobackup
