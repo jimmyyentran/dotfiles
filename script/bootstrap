@@ -147,16 +147,19 @@ fi
 
 ~/.zprezto/install
 
-echo
-echo "Updating vim plugins"
-echo
+# if vim or nvim exists, install plugin
+if type vim >/dev/null 2>&1 -o type nvim >/dev/ull 2>&1; then
+    echo
+    echo "Updating vim plugins"
+    echo
 
-# mute process running in background
-vim -c 'PlugInstall' -c ':q' -c ':q' &>/dev/null &
-for job in `jobs -p`
-do
-    wait $job
-done
+    # mute process running in background
+    vim -c 'PlugInstall' -c ':q' -c ':q' &>/dev/null &
+    for job in `jobs -p`
+    do
+        wait $job
+    done
+fi
 
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
