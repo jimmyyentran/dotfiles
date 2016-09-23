@@ -43,7 +43,7 @@ set background=dark
 try
     colorscheme solarized
 catch /^Vim\%((\a\+)\)\=:E185/
-    colorscheme monokai
+    colorscheme desert
 endtry
 " let g:solarized_termcolors=256
 " let g:solarized_visibility="high"
@@ -55,7 +55,7 @@ endtry
 "
 
 " this breaks on nvim
-if has('vim')
+if !has('nvim')
     set encoding=utf-8
 endif
 " set term=xterm-256color
