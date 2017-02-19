@@ -1,1 +1,1 @@
-/Users/jimmytran/.vimrc
+../vimrc.symlink

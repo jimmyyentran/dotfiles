@@ -141,8 +141,14 @@ install_dotfiles () {
 install_dotfiles
 
 if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
-  echo 'Cloning prezto'
+  echo 'Cloning jtran064 prezto'
   git clone --recursive https://github.com/jtran064/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+fi
+
+# setup powerline
+if [ ! -d "$HOME/.local/tmux-powerline" ]; then
+  echo 'Cloning tmux powerline'
+  git clone https://github.com/jtran064/tmux-powerline "$HOME/.local/tmux-powerline"
 fi
 
 ~/.zprezto/install
