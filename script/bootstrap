@@ -151,7 +151,7 @@ if [ ! -d "$HOME/.local/tmux-powerline" ]; then
   git clone https://github.com/jtran064/tmux-powerline "$HOME/.local/tmux-powerline"
 fi
 
-~/.zprezto/install
+nohup ~/.zprezto/install &
 
 # if vim or nvim exists, install plugin
 if type vim >/dev/null 2>&1 -o type nvim >/dev/ull 2>&1; then
