@@ -120,6 +120,14 @@ set ttimeoutlen=50
 hi Normal ctermbg=none
 
 " source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+
+" allow scrolling
+if has('mouse')
+    set mouse=a
+endif
+
+" Automatically copy to clipboard
+set clipboard+=unnamed
 " }}}
 "Local config{{{1
 if filereadable($HOME . "/.vimrc.local")
@@ -423,7 +431,8 @@ nnoremap <leader>gt :YcmCompleter GoTo<CR>
 
 " inoremap <C-d> <esc>lxi
 
-
+" copy to clipboard
+vmap <C-c> "+y
 
 
 " }}}

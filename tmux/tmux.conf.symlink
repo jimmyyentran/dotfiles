@@ -20,14 +20,16 @@ bind -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
 bind -n C-\ if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 
 #powerline
-set-option -g status on
-set-option -g status-interval 2
-set-option -g status-justify "centre"
+#set-option -g status on
+#set-option -g status-interval 2
+#set-option -g status-justify "centre"
+#set-option -g status-left "#(~/.local/tmux-powerline/powerline.sh left)"
+#set-option -g status-right "#(~/.local/tmux-powerline/powerline.sh right)"
+#PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+#source "/Users/jimmytran/.local/powerline/powerline/bindings/tmux/powerline.conf"
+source ~/.local/powerline/powerline/bindings/tmux/powerline.conf
 set-option -g status-left-length 60
-set-option -g status-right-length 90
-set-option -g status-left "#(~/.local/tmux-powerline/powerline.sh left)"
-set-option -g status-right "#(~/.local/tmux-powerline/powerline.sh right)"
-PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+set-option -g status-right-length 100
 
 # mouse support
 set -g mouse on
