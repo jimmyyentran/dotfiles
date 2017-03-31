@@ -187,7 +187,12 @@ augroup vimrcEx
   "update vimrc whenever save
   au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC
   if has('gui_running')
-      so $MYGVIMRC
+      " so $mygvimrc
+      let s:uname = system("uname")
+      if s:uname == "Darwin\n"
+          " set guifont=Inconsolata\ for\ Powerline:h15
+          set guifont=Anonymice\ Powerline:h14
+      endif
   endif
 augroup END
 
@@ -434,6 +439,8 @@ nnoremap <leader>gt :YcmCompleter GoTo<CR>
 " copy to clipboard
 vmap <C-c> "+y
 
+" keep visual textwidth but no new line in insert
+set formatoptions-=t
 
 " }}}
 "Command Alias{{{1

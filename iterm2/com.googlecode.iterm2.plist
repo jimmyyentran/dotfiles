@@ -441,13 +441,13 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>357 131 646 200 0 0 1680 1027 </string>
+	<string>661 151 646 294 0 0 2560 1417 </string>
 	<key>NSWindow Frame ProfilesPanel</key>
-	<string>205 607 735 382 0 0 1680 1027 </string>
+	<string>396 974 735 382 0 0 2560 1417 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>571 120 918 495 0 0 1680 1027 </string>
+	<string>312 665 918 495 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>841 16 953 1007 0 0 1680 1027 </string>
+	<string>1283 715 1273 699 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>176 70 570 452 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_FE08F2A7-83BA-41D3-A969-6FAC150CA090</key>
@@ -1001,7 +1001,7 @@
 			<key>Name</key>
 			<string>Solarized</string>
 			<key>Non Ascii Font</key>
-			<string>AnonymicePowerline 14</string>
+			<string>InconsolataForPowerline 14</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
@@ -1173,7 +1173,7 @@
 			<key>Use Italic Font</key>
 			<true/>
 			<key>Use Non-ASCII Font</key>
-			<true/>
+			<false/>
 			<key>Vertical Spacing</key>
 			<real>1</real>
 			<key>Visual Bell</key>
