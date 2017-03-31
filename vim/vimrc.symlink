@@ -243,7 +243,7 @@ let NERDRemoveExtraSpaces = 1               "Remove beginning spaces
 let NERDSpaceDelims = 1                     "Add space at comment beggining
 " }}}
 " NERDTree-Tabs {{{2
-" let g:nerdtree_tabs_open_on_console_startup=1   
+let g:nerdtree_tabs_open_on_gui_startup = 0     "Disable gui startup
 let g:NERDTreeMapJumpFirstChild='\t'            "Make random setting
 let g:NERDTreeMapJumpLastChild='\tt'            "Make random setting
 let NERDTreeShowBookmarks=1
