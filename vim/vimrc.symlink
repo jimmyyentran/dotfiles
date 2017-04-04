@@ -207,6 +207,9 @@ augroup END
 
 " Recognize gradle as groovy file
 au BufNewFile,BufRead *.gradle setf groovy
+
+" Set python tabs to 2
+au FileType python setlocal expandtab tabstop=2 shiftwidth=2
 " }}}
 " NeoVim Configs {{{1
 if has('nvim')
