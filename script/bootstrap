@@ -146,9 +146,9 @@ if [ ! -d "${ZDOTDIR:-$HOME}/.zprezto" ]; then
 fi
 
 # setup powerline
-if [ ! -d "$HOME/.local/tmux-powerline" ]; then
-  echo 'Cloning tmux powerline'
-  git clone https://github.com/jtran064/tmux-powerline "$HOME/.local/tmux-powerline"
+if [ ! -d "$HOME/.local/powerline" ]; then
+  echo 'Cloning powerline'
+  git clone https://github.com/powerline/powerline "$HOME/.local/powerline"
 fi
 
 nohup ~/.zprezto/install &
