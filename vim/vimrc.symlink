@@ -4,7 +4,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'VundleVim/Vundle.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'kien/ctrlp.vim'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'rdnetto/YCM-Generator', {'branch': 'stable'}
 Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdcommenter'
@@ -20,6 +20,8 @@ Plug 'benekastah/neomake'
 Plug 'vim-scripts/SearchComplete'
 Plug 'tpope/vim-surround'
 Plug 'critiqjo/lldb.nvim'
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+" Plug 'ervandew/supertab'
 Plug 'dpzmick/neovim-hackernews'
 Plug 'tpope/vim-fugitive'
 Plug 'hdima/python-syntax'
@@ -96,6 +98,9 @@ set spellfile=$HOME/.vim-spell-en.utf-8.add
 set complete+=kspell
 " Always use vertical diffs
 set diffopt+=vertical
+
+" keep visual textwidth but no new line in insert
+set formatoptions-=t
 
 " let use defaults
 " Allow .bashrc and .bash_aliases to run in :! commands
@@ -209,7 +214,7 @@ augroup END
 au BufNewFile,BufRead *.gradle setf groovy
 
 " Set python tabs to 2
-au FileType python setlocal expandtab tabstop=2 shiftwidth=2
+" au FileType python setlocal expandtab tabstop=2 shiftwidth=2
 " }}}
 " NeoVim Configs {{{1
 if has('nvim')
@@ -328,14 +333,17 @@ let python_highlight_all = 1
 " Python-mode{{{2
 let g:pymode_rope_completion = 0
 " }}}
+" Deoplete{{{2
+let g:deoplete#enable_at_startup = 1
+" }}}
 " 
 "Mappings{{{1
 " Index ctags from any project, including those outside Rails"
 map <Leader>ct :!ctags -R .<CR>
 
 " easy open and close folds
-nnoremap z za
-vnoremap z za
+" nnoremap z za
+" vnoremap z za
 
 " Switch between the last two files
 " nnoremap <leader><leader> <c-^>
@@ -445,6 +453,7 @@ vmap <C-c> "+y
 " keep visual textwidth but no new line in insert
 set formatoptions-=t
 
+nnoremap <Space>j J
 " }}}
 "Command Alias{{{1
 cnoreabbrev vr tabedit ~/.vimrc

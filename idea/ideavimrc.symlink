@@ -2,3 +2,13 @@ source ~/.vimrc
 
 nnoremap K gt
 nnoremap J gT
+
+nnoremap <Space>f :action ReformatCode<CR>
+
+nnoremap <C-s> :source ~/.ideavimrc<CR>
+
+nnoremap <Space>n :action ActivateProjectToolWindow<CR>
+nnoremap <Space>s :action AceAction<CR>
+nnoremap <Space>l :action AceLineAction<CR>
+nnoremap <Space>i :action GotoRelated<CR>
+nnoremap <Space>j J

@@ -447,7 +447,7 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>312 665 918 495 0 0 2560 1417 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1283 715 1273 699 0 0 2560 1417 </string>
+	<string>1682 152 956 1054 1680 150 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>176 70 570 452 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_FE08F2A7-83BA-41D3-A969-6FAC150CA090</key>
@@ -2641,7 +2641,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>AE31CCC7-2E01-475A-AB35-7D4B33A20202</string>
 	<key>NoSyncLastTipTime</key>
-	<real>512635338.841465</real>
+	<real>512959689.92279297</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2653,6 +2653,9 @@
 	<key>NoSyncTipsToNotShow</key>
 	<array>
 		<string>000</string>
+		<string>0000</string>
+		<string>0001</string>
+		<string>0002</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -2724,7 +2727,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-03-31T06:42:18Z</date>
+	<date>2017-04-02T03:49:56Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -2751,6 +2754,8 @@
 	<false/>
 	<key>URLHandlersByGuid</key>
 	<dict/>
+	<key>Use background pattern indicator</key>
+	<false/>
 	<key>UseBorder</key>
 	<false/>
 	<key>UseCompactLabel</key>
