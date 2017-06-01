@@ -243,15 +243,21 @@ end)
 -- }}}2
 
 -- : - in Safari, focus address bar; everywhere else, call Alfred {{{2
-normal:bind({}, ';', function()
-    local app = hs.application.frontmostApplication()
-    if app:name() == "Safari" then
-        hs.eventtap.keyStroke({"cmd"}, "l") -- go to address bar
-    else
-        normal:exit()
-        hs.eventtap.keyStroke({"cmd"}, "space") -- call Alfred
-    end
+-- normal:bind({}, ';', function()
+    -- local app = hs.application.frontmostApplication()
+    -- if app:name() == "Safari" then
+        -- hs.eventtap.keyStroke({"cmd"}, "l") -- go to address bar
+    -- else
+        -- normal:exit()
+        -- hs.eventtap.keyStroke({"cmd"}, "space") -- call Alfred
+    -- end
+-- end)
+
+normal:bind({'cmd'}, 'space', function()
+    normal:exit()
+    hs.eventtap.keyStroke({'cmd'}, 'space')
 end)
+
 -- }}}2
 
 -- f, s - call Shortcat {{{2
@@ -430,5 +436,38 @@ hs.window.filter.new('Terminal')-- {{{1
     end)
     :subscribe(hs.window.filter.windowUnfocused,function()
         enterNormal:enable()
+    end)-- }}}1
+
+hs.window.filter.new('iTerm2')-- {{{1
+    :subscribe(hs.window.filter.windowFocused,function()
+        normal:exit()
+        enterNormal:disable()
+    end)
+    :subscribe(hs.window.filter.windowUnfocused,function()
+        enterNormal:enable()
+    end)-- }}}1
+
+hs.window.filter.new('Chrome')-- {{{1
+    :subscribe(hs.window.filter.windowFocused,function()
+        normal:exit()
+        enterNormal:disable()
+    end)
+    :subscribe(hs.window.filter.windowUnfocused,function()
+        enterNormal:enable()
+    end)-- }}}1
+
+hs.window.filter.new('PyCharm')-- {{{1
+    :subscribe(hs.window.filter.windowFocused,function()
+        normal:exit()
+        enterNormal:disable()
+    end)
+    :subscribe(hs.window.filter.windowUnfocused,function()
+        enterNormal:enable()
+    end)-- }}}1
+
+-- Auto Enable
+hs.window.filter.new('Preview')-- {{{1
+    :subscribe(hs.window.filter.windowFocused,function()
+        normal:enter()
     end)-- }}}1
 
