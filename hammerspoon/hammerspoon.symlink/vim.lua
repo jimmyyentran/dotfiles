@@ -420,54 +420,36 @@ end)
 
 -- }}}1
 
-hs.window.filter.new('MacVim')-- {{{1
-    :subscribe(hs.window.filter.windowFocused,function()
-        normal:exit()
-        enterNormal:disable()
-    end)
-    :subscribe(hs.window.filter.windowUnfocused,function()
-        enterNormal:enable()
-    end)-- }}}1
+disable_list = {
+    'MacVim',
+    'Terminal',
+    'iTerm2',
+    'Google Chrome',
+    'PyCharm',
+    'AppCode'
+}
 
-hs.window.filter.new('Terminal')-- {{{1
-    :subscribe(hs.window.filter.windowFocused,function()
-        normal:exit()
-        enterNormal:disable()
-    end)
-    :subscribe(hs.window.filter.windowUnfocused,function()
-        enterNormal:enable()
-    end)-- }}}1
-
-hs.window.filter.new('iTerm2')-- {{{1
-    :subscribe(hs.window.filter.windowFocused,function()
-        normal:exit()
-        enterNormal:disable()
-    end)
-    :subscribe(hs.window.filter.windowUnfocused,function()
-        enterNormal:enable()
-    end)-- }}}1
-
-hs.window.filter.new('Chrome')-- {{{1
-    :subscribe(hs.window.filter.windowFocused,function()
-        normal:exit()
-        enterNormal:disable()
-    end)
-    :subscribe(hs.window.filter.windowUnfocused,function()
-        enterNormal:enable()
-    end)-- }}}1
-
-hs.window.filter.new('PyCharm')-- {{{1
-    :subscribe(hs.window.filter.windowFocused,function()
-        normal:exit()
-        enterNormal:disable()
-    end)
-    :subscribe(hs.window.filter.windowUnfocused,function()
-        enterNormal:enable()
-    end)-- }}}1
+for i=1, #disable_list do
+    hs.window.filter.new(disable_list[i])
+        :subscribe(hs.window.filter.windowFocused,function()
+            normal:exit()
+            normalActivationListener:stop()
+        end)
+        :subscribe(hs.window.filter.windowUnfocused,function()
+            normalActivationListener:start()
+        end)
+end
 
 -- Auto Enable
-hs.window.filter.new('Preview')-- {{{1
-    :subscribe(hs.window.filter.windowFocused,function()
-        normal:enter()
-    end)-- }}}1
+enable_list = {
+    'Preview',
+    'Finder'
+}
+
+for i=1, #enable_list do
+    hs.window.filter.new(enable_list[i])
+        :subscribe(hs.window.filter.windowFocused,function()
+            normal:enter()
+        end)
+end
 

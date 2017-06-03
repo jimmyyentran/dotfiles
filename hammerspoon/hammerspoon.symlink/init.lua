@@ -4,12 +4,6 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
   hs.reload()
 end)
 
--- Use Control+` to reload Hammerspoon config
-hs.hotkey.bind({'ctrl'}, '`', nil, function()
-  hs.reload()
-end)
-
-
 modal_list = {}
 -- require('control-escape')
 -- require('delete-words')
