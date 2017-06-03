@@ -63,8 +63,13 @@ function up() hs.eventtap.keyStroke({}, "Up") end
 normal:bind({}, 'k', up, nil, up)
 -- }}}3
 
+times = 1
 -- j - move down {{{3
-function down() hs.eventtap.keyStroke({}, "Down") end
+function down() 
+    for i=1,times do
+        hs.eventtap.keyStroke({}, "Down")
+    end
+end
 normal:bind({}, 'j', down, nil, down)
 -- }}}3
 
@@ -124,10 +129,12 @@ end)
 -- }}}3
 
 -- d - page down {{{3
-normal:bind({}, 'd', function()
+pagedown = function()
     hs.eventtap.keyStroke({}, "pagedown")
-end)
+end
+normal:bind({}, 'd', pagedown)
 -- }}}3
+
 
 -- <c-b> - page up {{{3
 normal:bind({"ctrl"}, "b", function()
@@ -440,7 +447,6 @@ for i=1, #disable_list do
         end)
 end
 
--- Auto Enable
 enable_list = {
     'Preview',
     'Finder'
@@ -452,4 +458,3 @@ for i=1, #enable_list do
             normal:enter()
         end)
 end
-

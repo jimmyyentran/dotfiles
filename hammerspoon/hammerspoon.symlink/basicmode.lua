@@ -11,15 +11,6 @@ keyUpDown = function(modifiers, key)
   hs.eventtap.keyStroke(modifiers, key, 0)
 end
 
--- Subscribe to the necessary events on the given window filter such that the
--- given hotkey is enabled for windows that match the window filter and disabled
--- for windows that don't match the window filter.
---
--- windowFilter - An hs.window.filter object describing the windows for which
---                the hotkey should be enabled.
--- hotkey       - The hs.hotkey object to enable/disable.
---
--- Returns nothing.
 enableHotkeyForWindowsMatchingFilter = function(windowFilter, hotkey)
   windowFilter:subscribe(hs.window.filter.windowFocused, function()
     hotkey:enable()
@@ -254,42 +245,42 @@ function resizeM:exited() end
 resizeM:bind('', 'escape', function() resizeM:exit() end)
 resizeM:bind('', 'I', function() resizeM:exit() end)
 resizeM:bind('', 'tab', function() showavailableHotkey() end)
--- resizeM:bind('shift', 'Y', 'Shrink Leftward', function() resize_win('left') end, nil, function() resize_win('left') end)
--- resizeM:bind('shift', 'O', 'Stretch Rightward', function() resize_win('right') end, nil, function() resize_win('right') end)
--- resizeM:bind('shift', 'U', 'Stretch Downward', function() resize_win('down') end, nil, function() resize_win('down') end)
--- resizeM:bind('shift', 'I', 'Shrink Upward', function() resize_win('up') end, nil, function() resize_win('up') end)
-resizeM:bind('', 'Y', 'Shrink Leftward', function() resize_win('left') end, nil, function() resize_win('left') end)
-resizeM:bind('', 'O', 'Stretch Rightward', function() resize_win('right') end, nil, function() resize_win('right') end)
-resizeM:bind('', 'U', 'Stretch Downward', function() resize_win('down') end, nil, function() resize_win('down') end)
-resizeM:bind('', 'I', 'Shrink Upward', function() resize_win('up') end, nil, function() resize_win('up') end)
+
 resizeM:bind('', 'F', 'Fullscreen', function() resize_win('fullscreen') end, nil, nil)
 resizeM:bind('', 'C', 'Center Window', function() resize_win('center') end, nil, nil)
 resizeM:bind('shift', 'C', 'Resize & Center', function() resize_win('fcenter') end, nil, nil)
+resizeM:bind('', '=', 'Stretch Outward', function() resize_win('expand') end, nil, function() resize_win('expand') end)
+resizeM:bind('', '-', 'Shrink Inward', function() resize_win('shrink') end, nil, function() resize_win('shrink') end)
+
+resizeM:bind('shift', 'Y', 'Shrink Leftward', function() resize_win('left') end, nil, function() resize_win('left') end)
+resizeM:bind('shift', 'O', 'Stretch Rightward', function() resize_win('right') end, nil, function() resize_win('right') end)
+resizeM:bind('shift', 'U', 'Stretch Downward', function() resize_win('down') end, nil, function() resize_win('down') end)
+resizeM:bind('shift', 'I', 'Shrink Upward', function() resize_win('up') end, nil, function() resize_win('up') end)
+
 resizeM:bind('', 'H', 'Lefthalf of Screen', function() resize_win('halfleft') end, nil, nil)
+resizeM:bind('', 'L', 'Righthalf of Screen', function() resize_win('halfright') end, nil, nil)
 resizeM:bind('', 'J', 'Downhalf of Screen', function() resize_win('halfdown') end, nil, nil)
 resizeM:bind('', 'K', 'Uphalf of Screen', function() resize_win('halfup') end, nil, nil)
-resizeM:bind('', 'L', 'Righthalf of Screen', function() resize_win('halfright') end, nil, nil)
--- resizeM:bind('', 'Y', 'NorthWest Corner', function() resize_win('cornerNW') end, nil, nil)
--- resizeM:bind('', 'U', 'SouthWest Corner', function() resize_win('cornerSW') end, nil, nil)
--- resizeM:bind('', 'I', 'SouthEast Corner', function() resize_win('cornerSE') end, nil, nil)
--- resizeM:bind('', 'O', 'NorthEast Corner', function() resize_win('cornerNE') end, nil, nil)
+
 resizeM:bind('', '1', 'NorthWest Corner', function() resize_win('cornerNW') end, nil, nil)
 resizeM:bind('', '2', 'NorthEast Corner', function() resize_win('cornerNE') end, nil, nil)
 resizeM:bind('', '3', 'SouthWest Corner', function() resize_win('cornerSW') end, nil, nil)
-resizeM:bind('', '3', 'SouthEast Corner', function() resize_win('cornerSE') end, nil, nil)
-resizeM:bind('', '=', 'Stretch Outward', function() resize_win('expand') end, nil, function() resize_win('expand') end)
-resizeM:bind('', '-', 'Shrink Inward', function() resize_win('shrink') end, nil, function() resize_win('shrink') end)
-resizeM:bind('shift', 'H', 'Move Leftward', function() resize_win('mleft') end, nil, function() resize_win('mleft') end)
-resizeM:bind('shift', 'L', 'Move Rightward', function() resize_win('mright') end, nil, function() resize_win('mright') end)
-resizeM:bind('shift', 'J', 'Move Downward', function() resize_win('mdown') end, nil, function() resize_win('mdown') end)
-resizeM:bind('shift', 'K', 'Move Upward', function() resize_win('mup') end, nil, function() resize_win('mup') end)
+resizeM:bind('', '4', 'SouthEast Corner', function() resize_win('cornerSE') end, nil, nil)
+
+resizeM:bind('', 'Y', 'Move Leftward', function() resize_win('mleft') end, nil, function() resize_win('mleft') end)
+resizeM:bind('', 'O', 'Move Rightward', function() resize_win('mright') end, nil, function() resize_win('mright') end)
+resizeM:bind('', 'U', 'Move Downward', function() resize_win('mdown') end, nil, function() resize_win('mdown') end)
+resizeM:bind('', 'I', 'Move Upward', function() resize_win('mup') end, nil, function() resize_win('mup') end)
+
 resizeM:bind('', '`', 'Center Cursor', function() resize_win('ccursor') end, nil, nil)
 resizeM:bind('', '[', 'Focus Westward', function() cycle_wins_pre() end, nil, function() cycle_wins_pre() end)
 resizeM:bind('', ']', 'Focus Eastward', function() cycle_wins_next() end, nil, function() cycle_wins_next() end)
-resizeM:bind('', 'up', 'Move to monitor above', function() move_win('up') end, nil, nil)
-resizeM:bind('', 'down', 'Move to monitor below', function() move_win('down') end, nil, nil)
-resizeM:bind('', 'right', 'Move to monitor right', function() move_win('right') end, nil, nil)
-resizeM:bind('', 'left', 'Move to monitor left', function() move_win('left') end, nil, nil)
+
+resizeM:bind('shift', 'H', 'Move to monitor left', function() move_win('left') end, nil, nil)
+resizeM:bind('shift', 'L', 'Move to monitor right', function() move_win('right') end, nil, nil)
+resizeM:bind('shift', 'J', 'Move to monitor below', function() move_win('down') end, nil, nil)
+resizeM:bind('shift', 'K', 'Move to monitor above', function() move_win('up') end, nil, nil)
+
 resizeM:bind('', 'space', 'Move to next monitor', function() move_win('next') end, nil, nil)
 resizeM:bind('', 'X', 'Move to next monitor', function() move_win('next') end, nil, nil)
 resizeM:bind('', 'Z', 'Move to previous monitor', function() move_win('previous') end, nil, nil)
