@@ -247,6 +247,7 @@ resizeM:bind('', 'I', function() resizeM:exit() end)
 resizeM:bind('', 'tab', function() showavailableHotkey() end)
 
 resizeM:bind('', 'F', 'Fullscreen', function() resize_win('fullscreen') end, nil, nil)
+resizeM:bind('', 'M', 'Fullscreen', function() resize_win('fullscreen') end, nil, nil)
 resizeM:bind('', 'C', 'Center Window', function() resize_win('center') end, nil, nil)
 resizeM:bind('shift', 'C', 'Resize & Center', function() resize_win('fcenter') end, nil, nil)
 resizeM:bind('', '=', 'Stretch Outward', function() resize_win('expand') end, nil, function() resize_win('expand') end)
