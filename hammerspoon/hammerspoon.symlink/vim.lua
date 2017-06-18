@@ -447,16 +447,16 @@ for i=1, #disable_list do
         end)
 end
 
-enable_list = {
-    'Preview',
-    'Finder',
-    'Acrobat Reader'
-}
+-- enable_list = {
+    -- 'Preview',
+    -- 'Finder',
+    -- 'Acrobat Reader'
+-- }
 
-for i=1, #enable_list do
-    hs.window.filter.new(enable_list[i])
-        :subscribe(hs.window.filter.windowFocused,function()
-            normal:enter()
-            hs.alert.show('Normal mode')
-        end)
-end
+-- for i=1, #enable_list do
+    -- hs.window.filter.new(enable_list[i])
+        -- :subscribe(hs.window.filter.windowFocused,function()
+            -- normal:enter()
+            -- hs.alert.show('Normal mode')
+        -- end)
+-- end
