@@ -14,6 +14,7 @@ local isPressed = false
 -- Normal mode {{{1
 
 local normal = hs.hotkey.modal.new()
+local googleChrome = hs.hotkey.modal.new()
 
 -- <c-[> - enter Normal mode {{{2
 -- I don't remap <esc> because it's too risky
@@ -425,6 +426,14 @@ visual:bind({}, 'p', function()
 end)
 -- }}}2
 
+googleChrome:bind({"ctrl"}, "n", function()
+    hs.eventtap.keyStroke({}, "Down")
+end)
+
+googleChrome:bind({"ctrl"}, "p", function()
+    hs.eventtap.keyStroke({}, "Up")
+end)
+
 -- }}}1
 
 disable_list = {
@@ -446,6 +455,15 @@ for i=1, #disable_list do
             normalActivationListener:start()
         end)
 end
+
+hs.window.filter.new('Google Chrome')
+    :subscribe(hs.window.filter.windowFocused,function()
+        googleChrome:enter()
+    end)
+    :subscribe(hs.window.filter.windowUnfocused,function()
+        googleChrome:exit()
+    end)
+
 
 -- enable_list = {
     -- 'Preview',
