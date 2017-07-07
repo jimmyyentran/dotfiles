@@ -4,6 +4,10 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
   hs.reload()
 end)
 
+hs.hotkey.bind({"cmd", "shift"}, "L", function()
+  hs.caffeinate.lockScreen()
+end)
+
 modal_list = {}
 -- require('control-escape')
 -- require('delete-words')
