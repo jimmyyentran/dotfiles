@@ -56,4 +56,4 @@ bind h resize-pane -R 10
 # bind-key -n C-S-Tab previous-window
 
 # allow tmux to "open"
-set -g default-command "reattach-to-user-namespace -l /bin/zsh"
+# set -g default-command "reattach-to-user-namespace -l /bin/zsh"
