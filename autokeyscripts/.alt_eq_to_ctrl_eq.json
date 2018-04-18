@@ -1,8 +1,8 @@
 {
-    "usageCount": 85, 
+    "usageCount": 0, 
     "omitTrigger": false, 
     "prompt": false, 
-    "description": "alt_v_to_ctrl_v", 
+    "description": "alt_eq_to_ctrl_eq", 
     "abbreviation": {
         "wordChars": "[\\w]", 
         "abbreviations": [], 
@@ -12,7 +12,7 @@
         "triggerInside": false
     }, 
     "hotkey": {
-        "hotKey": "v", 
+        "hotKey": "=", 
         "modifiers": [
             "<alt>"
         ]
