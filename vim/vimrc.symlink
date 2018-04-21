@@ -323,7 +323,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 " }}}
 " NeoMake Plugin {{{2
-autocmd! BufWritePost * Neomake
+" autocmd! BufWritePost * Neomake
 " open after two inputs
 " let g:neomake_open_list = 2
 " }}}
