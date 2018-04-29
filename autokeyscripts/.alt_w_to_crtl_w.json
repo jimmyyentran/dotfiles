@@ -1,5 +1,5 @@
 {
-    "usageCount": 9, 
+    "usageCount": 25, 
     "omitTrigger": false, 
     "prompt": false, 
     "description": "alt_w_to_crtl_w", 
@@ -17,9 +17,7 @@
             "<alt>"
         ]
     }, 
-    "modes": [
-        3
-    ], 
+    "modes": [], 
     "showInTrayMenu": false, 
     "filter": {
         "regex": null, 

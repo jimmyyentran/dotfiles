@@ -1,5 +1,5 @@
 {
-    "usageCount": 0, 
+    "usageCount": 79, 
     "omitTrigger": false, 
     "prompt": false, 
     "description": "alt_l_to_ctrl_l", 
@@ -17,9 +17,7 @@
             "<alt>"
         ]
     }, 
-    "modes": [
-        3
-    ], 
+    "modes": [], 
     "showInTrayMenu": false, 
     "filter": {
         "regex": null, 
