@@ -1,0 +1,10 @@
+clear lock
+keysym Caps_Lock = Escape
+keycode 96 = XF86AudioRaiseVolume
+keycode 95 = XF86AudioLowerVolume
+keycode 76 = XF86AudioMute
+! Doesn't work
+! remove mod1 = Alt_L
+! remove mod4 = Super_L
+! add mod1 = Super_L
+! add mod4 = Alt_L
