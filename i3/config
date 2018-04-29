@@ -170,19 +170,14 @@ bar {
 
 exec --no-startup-id xset r rate 200 35
 exec xrandr --output DP-4 --auto --output DP-0 --primary --auto --right-of DP-4 --output HDMI-1 --auto --right-of DP-0
-# exec xmodmap -e "clear lock"
-# exec xmodmap -e "keysym Caps_Lock = Escape"
 exec --no-startup-id ~/Workspace/i3ipc-python/examples/focus-last.py &
-# exec --no-startup-id ~/Workspace/i3ipc-python/examples/i3-cycle-focus.py &
 exec --no-startup-id autokey-gtk &
 exec --no-startup-id ~/bin/i3_workspace_rename.sh
-# exec --no-startup-id gnome-panel &
 
 
 
 bindsym $mod+space exec --no-startup-id rofi -show run
 bindsym Control+space exec --no-startup-id rofi -show window
-# bindsym $mod+Tab exec ~/Workspace/i3ipc-python/examples/i3-cycle-focus.py --switch
 bindsym $mod+Tab exec ~/Workspace/i3ipc-python/examples/focus-last.py --switch
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
@@ -192,4 +187,3 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 client.focused #CC0000 #CC0000 #ffffff #2e9ef4 #CC0000
 
 bindsym $mod+Control+Shift+4 exec ~/bin/screenshot.sh
-# bindsym $Control+4 exec scrot -s ~/image.png && xclip -selection clipboard -t image/png -i ~/image.png && rm ~/image.png
