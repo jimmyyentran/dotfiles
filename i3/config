@@ -36,6 +36,7 @@ floating_modifier $mod
 # bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec ~/bin/gnome-terminal-title.sh
 bindsym $mod+ctrl+r exec ~/bin/gnome-terminal-ranger.sh
+bindsym $mod+ctrl+w exec chromium
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -168,22 +169,30 @@ bar {
         # tray_output primary
 }
 
-exec --no-startup-id xset r rate 200 35
-exec xrandr --output DP-4 --auto --output DP-0 --primary --auto --right-of DP-4 --output HDMI-1 --auto --right-of DP-0
-exec --no-startup-id ~/Workspace/i3ipc-python/examples/focus-last.py &
-exec --no-startup-id autokey-gtk &
-exec --no-startup-id ~/bin/i3_workspace_rename.sh
-
-
-
 bindsym $mod+space exec --no-startup-id rofi -show run
 bindsym Control+space exec --no-startup-id rofi -show window
 bindsym $mod+Tab exec ~/Workspace/i3ipc-python/examples/focus-last.py --switch
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id amixer -q set PCM toggle
 
 # <colorclass> <border> <background> <text> <indicator> <child_border>
 client.focused #CC0000 #CC0000 #ffffff #2e9ef4 #CC0000
 
 bindsym $mod+Control+Shift+4 exec ~/bin/screenshot.sh
+
+exec --no-startup-id xset r rate 200 35
+exec xrandr --output DP-4 --auto --output DP-0 --primary --auto --right-of DP-4 --output HDMI-1 --auto --right-of DP-0
+# Fix screen tearing
+exec nvidia-settings --assign CurrentMetaMode="DP-4:3840x2160_60 +0+0 { ForceFullCompositionPipeline = On  }, DP-0:3840x2160_60 +3840+0 { ForceFullCompositionPipeline = On  }, HDMI-1:3840x2160_60 +7680+0 { ForceFullCompositionPipeline = On  }"
+# From http://www.thelinuxrain.com/articles/got-tearing-with-proprietary-nvidia-try-this
+# nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode # -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, # ForceCompositionPipeline = On}/g')" > /dev/null
+exec --no-startup-id ~/Workspace/i3ipc-python/examples/focus-last.py &
+# exec --no-startup-id autokey-gtk &
+exec --no-startup-id blueman-applet &
+exec --no-startup-id ~/bin/i3_workspace_rename.sh
+
+assign [class="Messenger"] 1
+assign [class="Discord"] 1
+assign [class="TelegramDesktop"] 1

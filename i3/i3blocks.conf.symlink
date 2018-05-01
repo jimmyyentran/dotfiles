@@ -74,6 +74,14 @@ full_text=
 [separator]
 
 [crypto]
+label=N
+markup=pango
+interval=60
+instance=neo
+command=~/Workspace/i3blocks-crypto/crypto
+full_text=
+
+[crypto]
 label=
 markup=pango
 interval=60
