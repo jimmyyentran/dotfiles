@@ -16,7 +16,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 # font pango:monospace 11
 # font pango:RobotoMono Nerd Font Regular 11, FontAwesome 8
-font pango:FontAwesome 11
+font pango:FontAwesome 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -178,7 +178,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
 bindsym XF86AudioMute exec --no-startup-id amixer -q set PCM toggle
 
 # <colorclass> <border> <background> <text> <indicator> <child_border>
-client.focused #CC0000 #CC0000 #ffffff #2e9ef4 #CC0000
+client.focused #720000 #720000 #ffffff #2e9ef4 #720000
 
 bindsym $mod+Control+Shift+4 exec ~/bin/screenshot.sh
 
