@@ -453,7 +453,12 @@ vmap <C-c> "+y
 " keep visual textwidth but no new line in insert
 set formatoptions-=t
 
+" Since J is alerady mapped to changing tabs
 nnoremap <Space>j J
+
+set pastetoggle=<F2>
+
+
 " }}}
 "Command Alias{{{1
 cnoreabbrev vr tabedit ~/.vimrc

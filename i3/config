@@ -191,9 +191,14 @@ exec nvidia-settings --assign CurrentMetaMode="DP-4:3840x2160_60 +0+0 { ForceFul
 exec --no-startup-id ~/Workspace/i3ipc-python/examples/focus-last.py &
 # exec --no-startup-id autokey-gtk &
 exec --no-startup-id blueman-applet &
-exec --no-startup-id ~/bin/i3_workspace_rename.sh
-exec --no-startup-id ~/bin/change_background.sh
+# exec --no-startup-id ~/bin/i3_workspace_rename.sh
+exec --no-startup-id ~/bin/change_background.sh &
+exec --no-startup-id compton &
+
+workspace 1 output DP-4
+workspace 2 output DP-0
+workspace 3 output HDMI-1
 
 assign [class="Messenger"] 1
-assign [class="Discord"] 1
+assign [class="discord"] 1
 assign [class="TelegramDesktop"] 1

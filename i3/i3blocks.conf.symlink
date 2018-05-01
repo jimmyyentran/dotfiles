@@ -241,8 +241,7 @@ full_text=
 # command=~/Workspace/i3blocks/blocks/audio
 # color=#2aa198
 # full_text=
-
-[separator]
+# [separator]
 
 [weather]
 instance=5408406
