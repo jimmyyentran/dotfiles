@@ -71,3 +71,12 @@ bind h resize-pane -R 10
 
 # if run as "tmux attach", create a session if one does not already exist
 # new-session -n $HOST
+
+
+# Enable vim in normal mode
+setw -g mode-keys vi
+
+# Vim style
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -i -sel clip > /dev/null"
+bind-key p run "xclip -o -sel clip | tmux load-buffer - ; tmux paste-buffer"
+bind-key -T copy-mode-vi v send-keys -X begin-selection

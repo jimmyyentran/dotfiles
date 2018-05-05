@@ -170,7 +170,7 @@ bar {
 }
 
 bindsym $mod+space exec --no-startup-id "rofi -combi-modi run,drun -show combi -modi combi"
-bindsym Control+space exec --no-startup-id rofi -show window
+bindsym Control+space exec --no-startup-id ~/bin/rofi_window.sh
 bindsym $mod+Tab exec ~/Workspace/i3ipc-python/examples/focus-last.py --switch
 
 # bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 3 +5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
