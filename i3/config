@@ -9,8 +9,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
-# set $mod Mod1
+# set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -53,10 +53,10 @@ bindsym $mod+d exec dmenu_run
 # bindsym $mod+k focus down
 # bindsym $mod+l focus up
 # bindsym $mod+semicolon focus right
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+h focus left; exec ~/bin/move_mouse_to_focus.sh
+bindsym $mod+j focus down; exec ~/bin/move_mouse_to_focus.sh
+bindsym $mod+k focus up; exec ~/bin/move_mouse_to_focus.sh
+bindsym $mod+l focus right;  exec ~/bin/move_mouse_to_focus.sh
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -169,12 +169,14 @@ bar {
         # tray_output primary
 }
 
-bindsym $mod+space exec --no-startup-id rofi -show run
+bindsym $mod+space exec --no-startup-id "rofi -combi-modi run,drun -show combi -modi combi"
 bindsym Control+space exec --no-startup-id rofi -show window
 bindsym $mod+Tab exec ~/Workspace/i3ipc-python/examples/focus-last.py --switch
 
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
+# bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 3 +5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
+# bindsym XF86AudioLowerVolume exec pactl set-sink-volume 3 -5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ && notify-send "$(amixer get Master | sed -n '6p' | awk '$0~/%/{print $5}' | tr -d '[]')"
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- && notify-send "$(amixer get Master | sed -n '6p' | awk '$0~/%/{print $5}' | tr -d '[]')"
 bindsym XF86AudioMute exec --no-startup-id amixer -q set PCM toggle
 
 # <colorclass> <border> <background> <text> <indicator> <child_border>
@@ -182,14 +184,15 @@ client.focused #720000 #720000 #ffffff #2e9ef4 #720000
 
 bindsym $mod+Control+Shift+4 exec ~/bin/screenshot.sh
 
+# startup programs
 exec --no-startup-id xset r rate 200 35
 exec xrandr --output DP-4 --auto --output DP-0 --primary --auto --right-of DP-4 --output HDMI-1 --auto --right-of DP-0
 # Fix screen tearing
 exec nvidia-settings --assign CurrentMetaMode="DP-4:3840x2160_60 +0+0 { ForceFullCompositionPipeline = On  }, DP-0:3840x2160_60 +3840+0 { ForceFullCompositionPipeline = On  }, HDMI-1:3840x2160_60 +7680+0 { ForceFullCompositionPipeline = On  }"
 # From http://www.thelinuxrain.com/articles/got-tearing-with-proprietary-nvidia-try-this
 # nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode # -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, # ForceCompositionPipeline = On}/g')" > /dev/null
-exec --no-startup-id ~/Workspace/i3ipc-python/examples/focus-last.py &
-# exec --no-startup-id autokey-gtk &
+# exec --no-startup-id ~/Workspace/i3ipc-python/examples/focus-last.py &
+exec --no-startup-id autokey-gtk &
 exec --no-startup-id blueman-applet &
 # exec --no-startup-id ~/bin/i3_workspace_rename.sh
 exec --no-startup-id ~/bin/change_background.sh &
@@ -202,3 +205,8 @@ workspace 3 output HDMI-1
 assign [class="Messenger"] 1
 assign [class="discord"] 1
 assign [class="TelegramDesktop"] 1
+
+# start up applications
+exec --no-startup-id discord
+exec --no-startup-id telegram-desktop
+exec --no-startup-id chromium
