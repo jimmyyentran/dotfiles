@@ -149,25 +149,46 @@ full_text=
 [separator]
 
 
+[gpu0]
+label=
+command=echo "$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader | sed -n 1p)°C"
+interval=10
+separator=false
+color=#d33682
+full_text=
+
+[gpu0]
+command=echo "$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader| sed -n 1p | sed 's/ //g')"
+interval=10
+separator=false
+color=#d33682
+full_text=
+
+[gpu0]
+command=echo "$(nvidia-smi --query-gpu=memory.used --format=csv,noheader| sed -n 1p | sed 's/ //g')"
+interval=10
+color=#d33682
+full_text=
+
 [gpu1]
 label=
-command=echo "$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader)°C"
+command=echo "$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader | sed -n 2p)°C"
 interval=10
 separator=false
-color=#d33682
+color=#6c71c4
 full_text=
 
 [gpu1]
-command=echo "$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader| sed 's/ //g')"
+command=echo "$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader| sed -n 2p | sed 's/ //g')"
 interval=10
 separator=false
-color=#d33682
+color=#6c71c4
 full_text=
 
 [gpu1]
-command=echo "$(nvidia-smi --query-gpu=memory.used --format=csv,noheader| sed 's/ //g')"
+command=echo "$(nvidia-smi --query-gpu=memory.used --format=csv,noheader| sed -n 2p | sed 's/ //g')"
 interval=10
-color=#d33682
+color=#6c71c4
 full_text=
 
 [separator]
