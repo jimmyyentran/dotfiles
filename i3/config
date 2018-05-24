@@ -115,16 +115,16 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace, then move focus there
-bindsym $mod+Shift+1 move container to workspace 1, workspace 1
-bindsym $mod+Shift+2 move container to workspace 2, workspace 2
-bindsym $mod+Shift+3 move container to workspace 3, workspace 3
-bindsym $mod+Shift+4 move container to workspace 4, workspace 4
-bindsym $mod+Shift+5 move container to workspace 5, workspace 5
-bindsym $mod+Shift+6 move container to workspace 6, workspace 6
-bindsym $mod+Shift+7 move container to workspace 7, workspace 7
-bindsym $mod+Shift+8 move container to workspace 8, workspace 8
-bindsym $mod+Shift+9 move container to workspace 9, workspace 9
-bindsym $mod+Shift+0 move container to workspace 10, workspace 10
+bindsym $mod+Shift+1 move container to workspace 1; workspace 1
+bindsym $mod+Shift+2 move container to workspace 2; workspace 2
+bindsym $mod+Shift+3 move container to workspace 3; workspace 3
+bindsym $mod+Shift+4 move container to workspace 4; workspace 4
+bindsym $mod+Shift+5 move container to workspace 5; workspace 5
+bindsym $mod+Shift+6 move container to workspace 6; workspace 6
+bindsym $mod+Shift+7 move container to workspace 7; workspace 7
+bindsym $mod+Shift+8 move container to workspace 8; workspace 8
+bindsym $mod+Shift+9 move container to workspace 9; workspace 9
+bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -191,12 +191,12 @@ exec --no-startup-id xset r rate 200 35
 # exec nvidia-settings --assign CurrentMetaMode="DP-4:3840x2160_60 +0+0 { ForceFullCompositionPipeline = On  }, DP-0:3840x2160_60 +3840+0 { ForceFullCompositionPipeline = On  }, HDMI-1:3840x2160_60 +7680+0 { ForceFullCompositionPipeline = On  }"
 # From http://www.thelinuxrain.com/articles/got-tearing-with-proprietary-nvidia-try-this
 # nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode # -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, # ForceCompositionPipeline = On}/g')" > /dev/null
-# exec --no-startup-id ~/Workspace/i3ipc-python/examples/focus-last.py &
+exec --no-startup-id ~/Workspace/i3ipc-python/examples/focus-last.py &
 exec --no-startup-id autokey-gtk &
 exec --no-startup-id blueman-applet &
 # exec --no-startup-id ~/bin/i3_workspace_rename.sh
 exec --no-startup-id ~/bin/change_background.sh &
-exec --no-startup-id compton &
+exec --no-startup-id compton --invert-color-include 'class_g="Zim" || class_g="Slack" || class_g="Studio 3T"' &
 
 workspace 1 output DP-4
 workspace 2 output DP-0
