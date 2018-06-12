@@ -42,7 +42,7 @@ bindsym $mod+ctrl+w exec chromium
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+# bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -160,6 +160,31 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+mode "go" {
+        # bindsym m exec ~/bin/move_mouse_to_window_class.sh Thunderbird; mode "default"
+        # bindsym d exec ~/bin/move_mouse_to_window_class.sh Discord; mode "default"
+        # bindsym t exec ~/bin/move_mouse_to_window_class.sh Telegram; mode "default"
+        # bindsym f exec ~/bin/move_mouse_to_window_class.sh Messenger; mode "default"
+        bindsym m exec i3-msg "[title=Thunderbird]" focus; mode "default"
+        bindsym d exec i3-msg "[title=Discord]" focus; mode "default"
+        bindsym t exec i3-msg "[title=Telegram]" focus; mode "default"
+        bindsym f exec i3-msg "[title=Messenger]" focus; mode "default"
+        bindsym s exec i3-msg "[title=3T]" focus; mode "default"
+        bindsym p exec i3-msg "[title=PyCharm]" focus; mode "default"
+
+        bindsym 0 exec i3-msg "[title=t0]" focus; mode "default"
+        bindsym 1 exec i3-msg "[title=t1]" focus; mode "default"
+        bindsym 2 exec i3-msg "[title=t2]" focus; mode "default"
+        bindsym 3 exec i3-msg "[title=t3]" focus; mode "default"
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+d mode "go"
+
+
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
@@ -196,7 +221,7 @@ exec --no-startup-id autokey-gtk &
 exec --no-startup-id blueman-applet &
 # exec --no-startup-id ~/bin/i3_workspace_rename.sh
 exec --no-startup-id ~/bin/change_background.sh &
-exec --no-startup-id compton --invert-color-include 'class_g="Zim" || class_g="Slack" || class_g="Studio 3T"' &
+exec --no-startup-id compton --invert-color-include 'class_g="Zim" || class_g="Slack" || class_g="Studio 3T" || class_g="Gnome-calculator"' &
 
 workspace 1 output DP-4
 workspace 2 output DP-0
@@ -210,3 +235,12 @@ assign [class="TelegramDesktop"] 1
 exec --no-startup-id discord
 exec --no-startup-id telegram-desktop
 exec --no-startup-id chromium
+
+bindsym $mod+i exec ~/.vim-anywhere/bin/run
+
+for_window [instance="gnome-calculator"] floating enable
+for_window [instance="gnome-calculator"] resize set 800 300
+for_window [instance="gnome-calculator"] move scratchpad
+for_window [instance="gnome-calculator"] border pixel 5
+exec --no-startup-id gnome-calculator
+bindsym $mod+m [instance="gnome-calculator"] scratchpad show; [instance="gnome-calculator"] move position center
