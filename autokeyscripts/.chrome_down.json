@@ -5,7 +5,7 @@
     "modes": [
         3
     ],
-    "usageCount": 8,
+    "usageCount": 62,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -24,7 +24,7 @@
         "hotKey": "n"
     },
     "filter": {
-        "regex": "chromium",
+        "regex": "(chromium|jetbrains-pycharm)",
         "isRecursive": false
     }
 }
