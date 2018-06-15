@@ -1,0 +1,12 @@
+[Unit]
+Description=run focus last
+
+[Service]
+Type=simple
+User=al
+Group=al
+ExecStart=/home/al/bin/focus-last.py
+
+[Install]
+WantedBy=multi-user.target
+
