@@ -9,7 +9,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4 # Windows key
+ # Windows key
+set $mod Mod4
 # set $mod Mod1 # Alt key
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -246,3 +247,5 @@ for_window [instance="gnome-calculator"] move scratchpad
 for_window [instance="gnome-calculator"] border pixel 5
 exec --no-startup-id gnome-calculator
 bindsym $mod+m [instance="gnome-calculator"] scratchpad show; [instance="gnome-calculator"] move position center
+
+bindsym $mod+Shift+o exec --no-startup-id xset dpms force off
