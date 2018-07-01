@@ -6,6 +6,8 @@ Type=simple
 User=al
 Group=al
 ExecStart=/home/al/bin/focus-last.py
+Restart=always
+RestartSec=1
 
 [Install]
 WantedBy=multi-user.target
