@@ -6,15 +6,20 @@ import selectors
 import threading
 from argparse import ArgumentParser
 import i3ipc
+import subprocess
 
 SOCKET_FILE = '/tmp/i3_focus_last'
 MAX_WIN_HISTORY = 15
+I3_SOCKET_PREFIX = '/run/user/1000/i3/ipc-socket.'
+
 
 
 class FocusWatcher:
 
     def __init__(self):
-        self.i3 = i3ipc.Connection()
+        pid = subprocess.check_output("ps -C i3 | awk 'NR==2 {printf $1}'", shell=True)
+        socket_path = I3_SOCKET_PREFIX + pid.decode("utf-8")
+        self.i3 = i3ipc.Connection(socket_path)
         self.i3.on('window::focus', self.on_window_focus)
         self.listening_socket = socket.socket(socket.AF_UNIX,
             socket.SOCK_STREAM)
