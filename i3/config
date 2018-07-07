@@ -199,7 +199,7 @@ bar {
 
 bindsym $mod+space exec --no-startup-id "rofi -combi-modi run,drun -show combi -modi combi"
 bindsym Control+space exec --no-startup-id ~/bin/rofi_window.sh
-bindsym $mod+Tab exec ~/Workspace/i3ipc-python/examples/focus-last.py --switch
+bindsym $mod+Tab exec ~/bin/focus-last.py --switch
 
 # bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 3 +5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
 # bindsym XF86AudioLowerVolume exec pactl set-sink-volume 3 -5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
@@ -219,7 +219,7 @@ exec --no-startup-id xset r rate 200 35
 # exec nvidia-settings --assign CurrentMetaMode="DP-4:3840x2160_60 +0+0 { ForceFullCompositionPipeline = On  }, DP-0:3840x2160_60 +3840+0 { ForceFullCompositionPipeline = On  }, HDMI-1:3840x2160_60 +7680+0 { ForceFullCompositionPipeline = On  }"
 # From http://www.thelinuxrain.com/articles/got-tearing-with-proprietary-nvidia-try-this
 # nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode # -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, # ForceCompositionPipeline = On}/g')" > /dev/null
-exec --no-startup-id ~/Workspace/i3ipc-python/examples/focus-last.py &
+# exec --no-startup-id ~/Workspace/i3ipc-python/examples/focus-last.py &
 exec --no-startup-id autokey-gtk &
 exec --no-startup-id blueman-applet &
 # exec --no-startup-id ~/bin/i3_workspace_rename.sh
