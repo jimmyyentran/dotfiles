@@ -3,11 +3,12 @@ Description=run focus last
 
 [Service]
 Type=simple
-User=al
-Group=al
-ExecStart=/home/al/bin/focus-last.py
+User=%i
+Group=%i
+ExecStart=/usr/bin/python3 /home/%i/bin/focus-last.py
+Environment="DISPLAY=:0"
 Restart=always
-RestartSec=1
+RestartSec=5
 
 [Install]
 WantedBy=multi-user.target

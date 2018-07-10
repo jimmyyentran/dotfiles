@@ -163,23 +163,19 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "go" {
-        # bindsym m exec ~/bin/move_mouse_to_window_class.sh Thunderbird; mode "default"
-        # bindsym d exec ~/bin/move_mouse_to_window_class.sh Discord; mode "default"
-        # bindsym t exec ~/bin/move_mouse_to_window_class.sh Telegram; mode "default"
-        # bindsym f exec ~/bin/move_mouse_to_window_class.sh Messenger; mode "default"
-        bindsym m exec i3-msg "[title=Thunderbird]" focus; mode "default"
-        bindsym d exec i3-msg "[title=Discord]" focus; mode "default"
-        bindsym t exec i3-msg "[title=Telegram]" focus; mode "default"
-        bindsym f exec i3-msg "[title=Messenger]" focus; mode "default"
-        bindsym s exec i3-msg "[title=3T]" focus; mode "default"
-        bindsym p exec i3-msg "[title=PyCharm]" focus; mode "default"
+        bindsym m exec i3-msg "[title=Thunderbird]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
+        bindsym d exec i3-msg "[title=Discord]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
+        bindsym t exec i3-msg "[title=Telegram]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
+        bindsym f exec i3-msg "[title=Messenger]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh; exec xdotool click --repeat 2 1
+        bindsym s exec i3-msg "[title=3T]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
+        bindsym p exec i3-msg "[title=PyCharm]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
 
-        bindsym 0 exec i3-msg "[title=t0]" focus; mode "default"
-        bindsym 1 exec i3-msg "[title=t1]" focus; mode "default"
-        bindsym 2 exec i3-msg "[title=t2]" focus; mode "default"
-        bindsym 3 exec i3-msg "[title=t3]" focus; mode "default"
+        bindsym 0 exec i3-msg "[title=t0]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
+        bindsym 1 exec i3-msg "[title=t1]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
+        bindsym 2 exec i3-msg "[title=t2]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
+        bindsym 3 exec i3-msg "[title=t3]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
 
-        # back to normal: Enter or Escape
+        # back to normal
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+d mode "default"
@@ -191,7 +187,6 @@ bindsym $mod+d mode "go"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        # i3bar_command ~/Workspace/dotfiles/.i3/lemonbar/i3_lemonbar.sh
         position top
         status_command i3blocks
         # tray_output primary
@@ -199,7 +194,7 @@ bar {
 
 bindsym $mod+space exec --no-startup-id "rofi -combi-modi run,drun -show combi -modi combi"
 bindsym Control+space exec --no-startup-id ~/bin/rofi_window.sh
-bindsym $mod+Tab exec ~/Workspace/i3ipc-python/examples/focus-last.py --switch
+bindsym $mod+Tab exec ~/bin/focus-last.py --switch
 
 # bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 3 +5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
 # bindsym XF86AudioLowerVolume exec pactl set-sink-volume 3 -5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
@@ -219,7 +214,7 @@ exec --no-startup-id xset r rate 200 35
 # exec nvidia-settings --assign CurrentMetaMode="DP-4:3840x2160_60 +0+0 { ForceFullCompositionPipeline = On  }, DP-0:3840x2160_60 +3840+0 { ForceFullCompositionPipeline = On  }, HDMI-1:3840x2160_60 +7680+0 { ForceFullCompositionPipeline = On  }"
 # From http://www.thelinuxrain.com/articles/got-tearing-with-proprietary-nvidia-try-this
 # nvidia-settings --assign CurrentMetaMode="$(nvidia-settings -q CurrentMetaMode # -t|tr '\n' ' '|sed -e 's/.*:: \(.*\)/\1\n/g' -e 's/}/, # ForceCompositionPipeline = On}/g')" > /dev/null
-exec --no-startup-id ~/Workspace/i3ipc-python/examples/focus-last.py &
+# exec --no-startup-id ~/Workspace/i3ipc-python/examples/focus-last.py &
 exec --no-startup-id autokey-gtk &
 exec --no-startup-id blueman-applet &
 # exec --no-startup-id ~/bin/i3_workspace_rename.sh
@@ -233,11 +228,15 @@ workspace 3 output HDMI-1
 assign [class="Messenger"] 1
 assign [class="discord"] 1
 assign [class="TelegramDesktop"] 1
+assign [class="Thunderbird"] 3
 
 # start up applications
 exec --no-startup-id discord
 exec --no-startup-id telegram-desktop
-exec --no-startup-id chromium
+exec --no-startup-id messengerfordesktop
+exec --no-startup-id thunderbird
+exec --no-startup-id i3-msg 'workspace 2; exec chromium'
+exec --no-startup-id i3-msg 'workspace 2; exec ~/bin/gnome-terminal-title.sh'
 
 bindsym $mod+i exec ~/.vim-anywhere/bin/run
 
