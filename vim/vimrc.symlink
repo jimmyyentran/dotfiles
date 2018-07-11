@@ -28,6 +28,7 @@ Plug 'hdima/python-syntax'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'altercation/vim-colors-solarized'
 " Plug 'klen/python-mode'
+Plug 'blindFS/vim-taskwarrior'
 call plug#end()
 
 " }}}
