@@ -167,7 +167,7 @@ mode "go" {
         bindsym d exec i3-msg "[title=Discord]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
         bindsym t exec i3-msg "[title=Telegram]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
         bindsym f exec i3-msg "[title=Messenger]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh; exec xdotool click --repeat 2 1
-        bindsym s exec i3-msg "[title=3T]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
+        bindsym s exec i3-msg "[title=Slack]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
         bindsym p exec i3-msg "[title=PyCharm]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
 
         bindsym 0 exec i3-msg "[title=t0]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
