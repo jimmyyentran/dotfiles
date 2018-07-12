@@ -1,1 +1,0 @@
-/home/vungtau/Workspace/i3-workspace-switcher/i3-workspace-switcher.py
