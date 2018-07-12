@@ -266,7 +266,13 @@ let NERDTreeShowBookmarks=1
 " I decided not to enable white list bc I like YCM for generic file directory
 " autofill
 " let g:ycm_filetype_whitelist = {'java': 1}
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+" let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+" ------ required in Archlinux -------
+let g:ycm_global_ycm_extra_conf = '/usr/share/vim/vimfiles/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
+" ------ required in Archlinux -------
+
 " show auto complete
 let g:ycm_min_num_of_chars_for_completion = 1
 " show auto complete immediately after symbol
