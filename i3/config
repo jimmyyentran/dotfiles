@@ -245,6 +245,11 @@ for_window [instance="gnome-calculator"] resize set 800 300
 for_window [instance="gnome-calculator"] move scratchpad
 for_window [instance="gnome-calculator"] border pixel 5
 exec --no-startup-id gnome-calculator
-bindsym $mod+m [instance="gnome-calculator"] scratchpad show; [instance="gnome-calculator"] move position center
+bindsym $mod+Control+m [instance="gnome-calculator"] scratchpad show; [instance="gnome-calculator"] move position center
 
-bindsym $mod+Shift+o exec --no-startup-id xset dpms force off
+for_window [class="Gnome-terminal" title="Taskwarrior"] floating enable
+for_window [class="Gnome-terminal"title="Taskwarrior"] move scratchpad
+exec --no-startup-id ~/bin/gnome-terminal-taskwarrior.sh
+bindsym $mod+Control+t [class="Gnome-terminal" title="Taskwarrior"] scratchpad show; [class="gnome-terminal" instance="Taskwarrior"] move position center
+
+bindsym $mod+Shift+o exec --no-startup-id ~/bin/i3exit.sh suspend
