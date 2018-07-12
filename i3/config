@@ -198,9 +198,24 @@ bindsym $mod+Tab exec ~/bin/focus-last.py --switch
 
 # bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 3 +5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
 # bindsym XF86AudioLowerVolume exec pactl set-sink-volume 3 -5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
-bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ && notify-send "$(amixer get Master | sed -n '6p' | awk '$0~/%/{print $5}' | tr -d '[]')"
-bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- && notify-send "$(amixer get Master | sed -n '6p' | awk '$0~/%/{print $5}' | tr -d '[]')"
-bindsym XF86AudioMute exec --no-startup-id amixer -q set PCM toggle
+# bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ && notify-send "$(amixer get Master | sed -n '5p' | awk '$0~/%/{print $4}' | tr -d '[]')"
+# bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- && notify-send "$(amixer get Master | sed -n '5p' | awk '$0~/%/{print $4}' | tr -d '[]')"
+# bindsym XF86AudioMute exec --no-startup-id amixer -q set PCM toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 2%+ && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)"
+bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 2%- && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)"
+bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 10%+ && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)"
+bindsym Shift+XF86AudioLowerVolume exec --no-startup-id "amixer set Master 10%- && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)"
+bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle && if amixer get Master | grep -Fq '[off]'; then volnoti-show -m; else volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1); fi"
+
+# Sreen brightness controls
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 2 && ~/bin/volnoti-brightness.sh"
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 2 && ~/bin/volnoti-brightness.sh"
+bindsym Shift+XF86MonBrightnessUp exec "xbacklight -inc 10 && ~/bin/volnoti-brightness.sh"
+bindsym Shift+XF86MonBrightnessDown exec "xbacklight -dec 10 && ~/bin/volnoti-brightness.sh"
+
+# Keyboard brightness controls
+bindsym XF86KbdBrightnessUp exec xbacklight -ctrl smc::kbd_backlight -inc 5
+bindsym XF86KbdBrightnessDown exec xbacklight -ctrl smc::kbd_backlight -dec 5
 
 # <colorclass> <border> <background> <text> <indicator> <child_border>
 client.focused #720000 #720000 #ffffff #2e9ef4 #720000
