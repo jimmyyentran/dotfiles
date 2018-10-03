@@ -1,0 +1,23 @@
+[Unit]
+Description=run focus last
+
+[Service]
+Type=simple
+<<<<<<< HEAD
+User=al
+Group=al
+ExecStart=/home/al/bin/focus-last.py
+Restart=always
+RestartSec=1
+=======
+User=%i
+Group=%i
+ExecStart=/usr/bin/python3 /home/%i/bin/focus-last.py
+Environment="DISPLAY=:0"
+Restart=always
+RestartSec=5
+>>>>>>> bfe984e57d3345297d8909b9112fb9c38fb3cffb
+
+[Install]
+WantedBy=multi-user.target
+

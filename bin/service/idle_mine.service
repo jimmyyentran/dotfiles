@@ -1,0 +1,14 @@
+[Unit]
+Description=run idle mine
+
+[Service]
+Type=forking
+User=al
+Group=al
+ExecStart=/home/al/bin/idle_mine.sh
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+

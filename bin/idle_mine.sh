@@ -24,7 +24,7 @@ if [ $IDLE_TIME -ge $IDLE_TRIGGER ]; then
         echo "No miner for gpu1 running. Beginning to run." >> ~/miner_gpu1.log
         # nohup ethminer --farm-recheck 1000 -U -S us2.ethermine.org:4444 -FS us1.ethermine.org:4444 -O 0xB8360a09F959A091dd6387a4B05424791981C35F.Rig1 --report-hashrate --cuda-devices 1 &>> ~/miner_gpu1.log &
         # nohup ccminer -a phi -o stratum+tcp://futurecoins.club:6667 -u Lgf6Ann8RHDfpZfGeiKCNm1R9TStiGuKEi -p c=LUX --devices 1 -i 25 &>> ~/miner_gpu1.log &
-        nohup ~/Workspace/ccminer/ccminer -a phi2 -o stratum+tcp://bpool.io:8332 -u Lgf6Ann8RHDfpZfGeiKCNm1R9TStiGuKEi -p c=LUX --device 1 --pstate 0 &>> ~/miner_gpu0.log &
+        nohup ~/Workspace/ccminer_2.3/ccminer -a phi2 -o stratum+tcp://bpool.io:8332 -u Lgf6Ann8RHDfpZfGeiKCNm1R9TStiGuKEi -p c=LUX --devices 1 --pstate 0 --intensity 19 &>> ~/miner_gpu1.log &
     fi
 else
     if $IS_MINER_RUNNING; then

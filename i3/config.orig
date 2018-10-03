@@ -77,11 +77,6 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+ctrl+Shift+Left workspace to output left
-bindsym $mod+ctrl+Shift+Down workspace to output down
-bindsym $mod+ctrl+Shift+Up workspace to output up
-bindsym $mod+ctrl+Shift+Right workspace to output right
-
 # split in horizontal orientation
 bindsym $mod+Shift+v split h
 
@@ -100,7 +95,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+ctrl+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -168,13 +163,13 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 mode "go" {
+<<<<<<< Updated upstream
         bindsym m exec i3-msg "[title=Thunderbird]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
         bindsym d exec i3-msg "[title=Discord]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
         bindsym t exec i3-msg "[title=Telegram]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
         bindsym f exec i3-msg "[title=Messenger]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh; exec xdotool click --repeat 2 1
-        bindsym s exec i3-msg "[title=Slack]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
+        bindsym s exec i3-msg "[title=3T]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
         bindsym p exec i3-msg "[title=PyCharm]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
-        bindsym c exec i3-msg "[title=Chromium]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
 
         bindsym 0 exec i3-msg "[title=t0]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
         bindsym 1 exec i3-msg "[title=t1]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
@@ -182,25 +177,32 @@ mode "go" {
         bindsym 3 exec i3-msg "[title=t3]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
 
         # back to normal
+=======
+        # bindsym m exec ~/bin/move_mouse_to_window_class.sh Thunderbird; mode "default"
+        # bindsym d exec ~/bin/move_mouse_to_window_class.sh Discord; mode "default"
+        # bindsym t exec ~/bin/move_mouse_to_window_class.sh Telegram; mode "default"
+        # bindsym f exec ~/bin/move_mouse_to_window_class.sh Messenger; mode "default"
+        bindsym m exec i3-msg "[title=Thunderbird]" focus; mode "default"
+        bindsym d exec i3-msg "[title=Discord]" focus; mode "default"
+        bindsym t exec i3-msg "[title=Telegram]" focus; mode "default"
+        bindsym f exec i3-msg "[title=Messenger]" focus; mode "default"
+        bindsym s exec i3-msg "[title=Slack]" focus; mode "default"
+        bindsym p exec i3-msg "[title=PyCharm]" focus; mode "default"
+        bindsym c exec i3-msg "[title=Chromium]" focus; mode "default"
+
+        bindsym 0 exec i3-msg "[title=t0]" focus; mode "default"
+        bindsym 1 exec i3-msg "[title=t1]" focus; mode "default"
+        bindsym 2 exec i3-msg "[title=t2]" focus; mode "default"
+        bindsym 3 exec i3-msg "[title=t3]" focus; mode "default"
+
+        # back to normal: Enter or Escape
+>>>>>>> Stashed changes
         bindsym Return mode "default"
         bindsym Escape mode "default"
         bindsym $mod+d mode "default"
 }
 
 bindsym $mod+d mode "go"
-
-mode "mouse move" {
-        bindsym --release h exec --no-startup-id xdotool key "Left"
-        bindsym --release j exec --no-startup-id xdotool key "Down"
-        bindsym --release k exec --no-startup-id xdotool key "Up"
-        bindsym --release l exec --no-startup-id xdotool key "Right"
-
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+m mode "default"
-}
-
-bindsym $mod+m mode "mouse move"
 
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -217,24 +219,9 @@ bindsym $mod+Tab exec ~/bin/focus-last.py --switch
 
 # bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 3 +5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
 # bindsym XF86AudioLowerVolume exec pactl set-sink-volume 3 -5% && notify-send "$(amixer get PCM | awk '$0~/%/{print $4}' | tr -d '[]')"
-# bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ && notify-send "$(amixer get Master | sed -n '5p' | awk '$0~/%/{print $4}' | tr -d '[]')"
-# bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- && notify-send "$(amixer get Master | sed -n '5p' | awk '$0~/%/{print $4}' | tr -d '[]')"
-# bindsym XF86AudioMute exec --no-startup-id amixer -q set PCM toggle
-bindsym XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 2%+ && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)"
-bindsym XF86AudioLowerVolume exec --no-startup-id "amixer set Master 2%- && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)"
-bindsym Shift+XF86AudioRaiseVolume exec --no-startup-id "amixer set Master 10%+ && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)"
-bindsym Shift+XF86AudioLowerVolume exec --no-startup-id "amixer set Master 10%- && volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1)"
-bindsym XF86AudioMute exec --no-startup-id "amixer -D pulse set Master toggle && if amixer get Master | grep -Fq '[off]'; then volnoti-show -m; else volnoti-show $(amixer get Master | grep -Po '[0-9]+(?=%)' | head -1); fi"
-
-# Sreen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 2 && ~/bin/volnoti-brightness.sh"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 2 && ~/bin/volnoti-brightness.sh"
-bindsym Shift+XF86MonBrightnessUp exec "xbacklight -inc 10 && ~/bin/volnoti-brightness.sh"
-bindsym Shift+XF86MonBrightnessDown exec "xbacklight -dec 10 && ~/bin/volnoti-brightness.sh"
-
-# Keyboard brightness controls
-bindsym XF86KbdBrightnessUp exec xbacklight -ctrl smc::kbd_backlight -inc 5
-bindsym XF86KbdBrightnessDown exec xbacklight -ctrl smc::kbd_backlight -dec 5
+bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ && notify-send "$(amixer get Master | sed -n '6p' | awk '$0~/%/{print $5}' | tr -d '[]')"
+bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- && notify-send "$(amixer get Master | sed -n '6p' | awk '$0~/%/{print $5}' | tr -d '[]')"
+bindsym XF86AudioMute exec --no-startup-id amixer -q set PCM toggle
 
 # <colorclass> <border> <background> <text> <indicator> <child_border>
 client.focused #720000 #720000 #ffffff #2e9ef4 #720000
@@ -253,15 +240,11 @@ exec --no-startup-id autokey-gtk &
 exec --no-startup-id blueman-applet &
 # exec --no-startup-id ~/bin/i3_workspace_rename.sh
 exec --no-startup-id ~/bin/change_background.sh &
-# exec --no-startup-id compton --invert-color-include 'class_g="Zim" || class_g="Slack" || class_g="Studio 3T" || class_g="Gnome-calculator"' &
-exec --no-startup-id compton -b
+exec --no-startup-id compton --invert-color-include 'class_g="Zim" || class_g="Slack" || class_g="Studio 3T" || class_g="Gnome-calculator"' &
 
-# workspace 1 output DP-4
-# workspace 2 output DP-0
-# workspace 3 output HDMI-1
-workspace 1 output HDMI-1
-workspace 2 output DP-4
-workspace 3 output DP-0
+workspace 1 output DP-4
+workspace 2 output DP-0
+workspace 3 output HDMI-1
 
 assign [class="Messenger"] 1
 assign [class="discord"] 1
@@ -283,11 +266,6 @@ for_window [instance="gnome-calculator"] resize set 800 300
 for_window [instance="gnome-calculator"] move scratchpad
 for_window [instance="gnome-calculator"] border pixel 5
 exec --no-startup-id gnome-calculator
-bindsym $mod+Control+m [instance="gnome-calculator"] scratchpad show; [instance="gnome-calculator"] move position center
+bindsym $mod+m [instance="gnome-calculator"] scratchpad show; [instance="gnome-calculator"] move position center
 
-for_window [class="Gnome-terminal" title="Taskwarrior"] floating enable
-for_window [class="Gnome-terminal"title="Taskwarrior"] move scratchpad
-exec --no-startup-id ~/bin/gnome-terminal-taskwarrior.sh
-bindsym $mod+Control+t [class="Gnome-terminal" title="Taskwarrior"] scratchpad show; [class="gnome-terminal" instance="Taskwarrior"] move position center
-
-bindsym $mod+Shift+o exec --no-startup-id ~/bin/i3exit.sh suspend
+bindsym $mod+Shift+o exec --no-startup-id xset dpms force off

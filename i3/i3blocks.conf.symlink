@@ -54,7 +54,7 @@ separator=false
 separator_block_width=15
 markup=none
 
-[bandwidth]
+# [bandwidth]
 # instance=wlp5s0;in
 # label=
 # interval=3
@@ -73,7 +73,6 @@ markup=none
 [bandwidth]
 label=
 command=~/Workspace/i3blocks-contrib/bandwidth3/bandwidth3 -p "printf \"%-5.1f|%5.1f %s\n\", rx, wx, unit;" -u MB
-
 interval=persist
 markup=pango
 full_text=
@@ -82,7 +81,7 @@ full_text=
 
 [disk-io]
 label=
-command=~/Workspace/i3blocks-contrib/disk-io/disk-io -M -P 1 -S -s "|"
+command=~/Workspace/i3blocks-contrib/disk-io/disk-io -M -P 1 -S -s " | " -t 3
 interval=persist
 markup=pango
 #instance=/^sda/
@@ -293,7 +292,7 @@ full_text=
 # Date Time
 #
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%a %Y-%m-%d %H:%M:%S'
 interval=5
 full_text=
 

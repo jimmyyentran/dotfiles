@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 lock() {
-    i3lock-fancy -p
+    i3lock -c 000000 -e -f
 }
 
 case "$1" in
@@ -12,7 +12,7 @@ case "$1" in
         i3-msg exit
         ;;
     suspend)
-        lock && systemctl suspend
+        lock && sleep 1 && xset dpms force off
         ;;
     hibernate)
         systemctl hibernate
