@@ -24,7 +24,7 @@
         "hotKey": "n"
     },
     "filter": {
-        "regex": "(chromium|jetbrains-pycharm|jetbrains-clion)",
+        "regex": "chromium",
         "isRecursive": false
     }
 }
