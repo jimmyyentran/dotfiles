@@ -293,7 +293,7 @@ full_text=
 #
 [time]
 command=date '+%a %Y-%m-%d %H:%M:%S'
-interval=5
+interval=1
 full_text=
 
 # Generic media player support

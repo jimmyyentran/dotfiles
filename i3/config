@@ -83,10 +83,10 @@ bindsym $mod+ctrl+Shift+Up workspace to output up
 bindsym $mod+ctrl+Shift+Right workspace to output right
 
 # split in horizontal orientation
-bindsym $mod+Shift+v split h
+bindsym $mod+Shift+b split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+b split v
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
@@ -175,6 +175,7 @@ mode "go" {
         bindsym s exec i3-msg "[title=Slack]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
         bindsym p exec i3-msg "[title=PyCharm]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
         bindsym c exec i3-msg "[title=Chromium]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
+        bindsym k exec i3-msg "[title=Skype]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
 
         bindsym 0 exec i3-msg "[title=t0]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
         bindsym 1 exec i3-msg "[title=t1]" focus; mode "default"; exec ~/bin/move_mouse_to_focus.sh
@@ -262,6 +263,7 @@ exec --no-startup-id compton -b
 workspace 1 output HDMI-1
 workspace 2 output DP-4
 workspace 3 output DP-0
+workspace 4 output HDMI-2
 
 assign [class="Messenger"] 1
 assign [class="discord"] 1
@@ -285,9 +287,19 @@ for_window [instance="gnome-calculator"] border pixel 5
 exec --no-startup-id gnome-calculator
 bindsym $mod+Control+m [instance="gnome-calculator"] scratchpad show; [instance="gnome-calculator"] move position center
 
-for_window [class="Gnome-terminal" title="Taskwarrior"] floating enable
-for_window [class="Gnome-terminal"title="Taskwarrior"] move scratchpad
-exec --no-startup-id ~/bin/gnome-terminal-taskwarrior.sh
-bindsym $mod+Control+t [class="Gnome-terminal" title="Taskwarrior"] scratchpad show; [class="gnome-terminal" instance="Taskwarrior"] move position center
+# for_window [class="Gnome-terminal" title="Taskwarrior"] floating enable
+# for_window [class="Gnome-terminal"title="Taskwarrior"] move scratchpad
+# exec --no-startup-id ~/bin/gnome-terminal-taskwarrior.sh
+# bindsym $mod+Control+t [class="Gnome-terminal" title="Taskwarrior"] scratchpad show; [class="gnome-terminal" instance="Taskwarrior"] move position center
+
+for_window [class="google-keep-nativefier-23ad36"] floating enable
+for_window [class="google-keep-nativefier-23ad36"] resize set 1480 1300
+for_window [class="google-keep-nativefier-23ad36"] move scratchpad
+exec --no-startup-id google-keep-desktop
+bindsym $mod+Control+n [class="google-keep-nativefier-23ad36"] scratchpad show; [class="google-keep-nativefier-23ad36"] move position center
+
+for_window [instance="remember the milk"] floating enable
+for_window [instance="remember the milk" title="Remember The Milk$"] move scratchpad
+bindsym $mod+Control+t [instance="remember the milk" title="Remember The Milk$"] scratchpad show; [instance="remember the milk" title="Remember The Milk$"] move position center
 
 bindsym $mod+Shift+o exec --no-startup-id ~/bin/i3exit.sh suspend
