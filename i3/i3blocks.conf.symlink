@@ -285,6 +285,13 @@ instance=5408406
 interval=300
 command=~/Workspace/i3blocks/blocks/weather
 color=#859900
+# full_text=
+
+[weather]
+instance=5408406
+interval=300
+command=~/Workspace/i3blocks/blocks/weather_fahrenheit
+color=#859900
 full_text=
 
 [separator]
