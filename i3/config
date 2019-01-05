@@ -59,6 +59,11 @@ bindsym $mod+j focus down; exec ~/bin/move_mouse_to_focus.sh
 bindsym $mod+k focus up; exec ~/bin/move_mouse_to_focus.sh
 bindsym $mod+l focus right;  exec ~/bin/move_mouse_to_focus.sh
 
+bindsym $mod+Shift+Control+h move workspace to output left
+bindsym $mod+Shift+Control+j move workspace to output down
+bindsym $mod+Shift+Control+k move workspace to output up
+bindsym $mod+Shift+Control+l move workspace to output right
+
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -209,7 +214,9 @@ bindsym $mod+m mode "mouse move"
 bar {
         position top
         status_command i3blocks
-        # tray_output primary
+        # tray_output DP-4
+        # i3bar_command i3bar -t
+        # i3bar_command i3blocks -t
 }
 
 bindsym $mod+space exec --no-startup-id "rofi -combi-modi run,drun -show combi -modi combi"
@@ -254,27 +261,31 @@ exec --no-startup-id autokey-gtk &
 exec --no-startup-id blueman-applet &
 # exec --no-startup-id ~/bin/i3_workspace_rename.sh
 exec --no-startup-id ~/bin/change_background.sh &
+# exec --no-startup-id ~/bin/alternating_layouts.py &
 # exec --no-startup-id compton --invert-color-include 'class_g="Zim" || class_g="Slack" || class_g="Studio 3T" || class_g="Gnome-calculator"' &
 exec --no-startup-id compton -b
 
 # workspace 1 output DP-4
 # workspace 2 output DP-0
 # workspace 3 output HDMI-1
-workspace 1 output HDMI-1
+workspace 1 output DP-2
 workspace 2 output DP-4
 workspace 3 output DP-0
-workspace 4 output HDMI-2
+workspace 4 output HDMI-1
+workspace 5 output DP-2
 
-assign [class="Messenger"] 1
+# assign [class="Messenger"] 1
+#
 assign [class="discord"] 1
-assign [class="TelegramDesktop"] 1
-assign [class="Thunderbird"] 3
+# assign [class="TelegramDesktop"] 1
+# assign [class="Thunderbird"] 1
+assign [class="Skype"] 1
 
 # start up applications
 exec --no-startup-id discord
-exec --no-startup-id telegram-desktop
+# exec --no-startup-id telegram-desktop
 exec --no-startup-id messengerfordesktop
-exec --no-startup-id thunderbird
+exec --no-startup-id i3-msg 'workspace 1; exec thunderbird'
 exec --no-startup-id i3-msg 'workspace 2; exec chromium'
 exec --no-startup-id i3-msg 'workspace 2; exec ~/bin/gnome-terminal-title.sh'
 
@@ -299,7 +310,9 @@ exec --no-startup-id google-keep-desktop
 bindsym $mod+Control+n [class="google-keep-nativefier-23ad36"] scratchpad show; [class="google-keep-nativefier-23ad36"] move position center
 
 for_window [instance="remember the milk"] floating enable
-for_window [instance="remember the milk" title="Remember The Milk$"] move scratchpad
-bindsym $mod+Control+t [instance="remember the milk" title="Remember The Milk$"] scratchpad show; [instance="remember the milk" title="Remember The Milk$"] move position center
+for_window [instance="remember the milk" title="- Remember The Milk$"] move scratchpad
+exec --no-startup-id dex /usr/share/applications/rememberthemilk.desktop
+bindsym $mod+Control+t [instance="remember the milk" title="- Remember The Milk$"] scratchpad show; [instance="remember the milk" title="- Remember The Milk$"] move position center
 
 bindsym $mod+Shift+o exec --no-startup-id ~/bin/i3exit.sh suspend
+# i3bar_command i3bar -t
