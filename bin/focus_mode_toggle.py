@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import subprocess
+import time
 
 xrandr_output = subprocess.run(['xrandr'], stdout=subprocess.PIPE).stdout.decode('utf-8')
 
@@ -13,10 +14,12 @@ for line in xrandr_output.split('\n'):
     words = line.split(" ")
     if words[1] == "connected" and words[2][0] == '(':
         print(f"Monitor {words[0]} is off. Returning to normal")
+        subprocess.run(["notify-send", "-t", "15000", "Focus mode off", f"Monitor {words[0]} is off. Returning to normal"])
         all_on = False
         break
 
 if all_on:
+    subprocess.run(["notify-send", "-t", "15000", "Focus mode on"])
     subprocess.run(FOCUS)
 else:
     subprocess.run(NORMAL)
