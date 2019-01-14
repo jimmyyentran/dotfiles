@@ -5,7 +5,7 @@
     "modes": [
         3
     ],
-    "usageCount": 4,
+    "usageCount": 357,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -24,7 +24,7 @@
         "hotKey": "p"
     },
     "filter": {
-        "regex": "(chromium|jetbrains-pycharm|jetbrains-clion)",
+        "regex": "^((?!VirtualBox Machine).)*$",
         "isRecursive": false
     }
 }

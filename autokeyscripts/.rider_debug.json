@@ -1,11 +1,9 @@
 {
     "type": "script",
-    "description": "chrome_new",
+    "description": "rider_debug",
     "store": {},
-    "modes": [
-        3
-    ],
-    "usageCount": 47,
+    "modes": [],
+    "usageCount": 36,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -19,12 +17,12 @@
     },
     "hotkey": {
         "modifiers": [
-            "<alt>"
+            "<shift>"
         ],
-        "hotKey": "n"
+        "hotKey": "<f9>"
     },
     "filter": {
-        "regex": "(chromium)",
+        "regex": null,
         "isRecursive": false
     }
 }

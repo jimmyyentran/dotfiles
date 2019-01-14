@@ -1,28 +1,30 @@
 {
-    "usageCount": 86, 
-    "omitTrigger": false, 
-    "prompt": false, 
-    "description": "alt_v_to_ctrl_v", 
+    "type": "script",
+    "description": "alt_v_to_ctrl_v",
+    "store": {},
+    "modes": [
+        3
+    ],
+    "usageCount": 86,
+    "prompt": false,
+    "omitTrigger": false,
+    "showInTrayMenu": false,
     "abbreviation": {
-        "wordChars": "[\\w]", 
-        "abbreviations": [], 
-        "immediate": false, 
-        "ignoreCase": false, 
-        "backspace": true, 
-        "triggerInside": false
-    }, 
+        "abbreviations": [],
+        "backspace": true,
+        "ignoreCase": false,
+        "immediate": false,
+        "triggerInside": false,
+        "wordChars": "[\\w]"
+    },
     "hotkey": {
-        "hotKey": "v", 
         "modifiers": [
             "<alt>"
-        ]
-    }, 
-    "modes": [], 
-    "showInTrayMenu": false, 
+        ],
+        "hotKey": "v"
+    },
     "filter": {
-        "regex": null, 
+        "regex": null,
         "isRecursive": false
-    }, 
-    "type": "script", 
-    "store": {}
+    }
 }
