@@ -1,2 +1,10 @@
+map <C-d> toggle_page_mode
 map d scroll half-down
 map u scroll half-up
+map c set recolor
+map m focus_inputbar ":bmark "
+
+# copy to clipboard
+set selection-clipboard clipboard
+
+
