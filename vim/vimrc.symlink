@@ -28,7 +28,7 @@ Plug 'hdima/python-syntax'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'altercation/vim-colors-solarized'
 " Plug 'klen/python-mode'
-Plug 'blindFS/vim-taskwarrior'
+" Plug 'blindFS/vim-taskwarrior'
 call plug#end()
 
 " }}}
@@ -43,11 +43,12 @@ filetype plugin on
 set background=dark
 
 " sometimes solarized doesn't exist
-try
-    colorscheme solarized
-catch /^Vim\%((\a\+)\)\=:E185/
-    colorscheme desert
-endtry
+" try
+    " colorscheme solarized
+" catch /^Vim\%((\a\+)\)\=:E185/
+    " colorscheme desert
+" endtry
+colorscheme desert
 " let g:solarized_termcolors=256
 " let g:solarized_visibility="high"
 " let g:solarized_contrast="high"
@@ -124,6 +125,8 @@ highlight FoldColumn ctermfg=darkgrey ctermbg=black
 set ttimeoutlen=50
 "make vim transparent
 hi Normal ctermbg=none
+hi ColorColumn guibg=#141414 ctermbg=235
+
 
 " source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 
@@ -168,6 +171,7 @@ augroup vimrcEx
   " Set syntax highlighting for specific file types
   autocmd BufRead,BufNewFile Appraisals set filetype=ruby
   autocmd BufRead,BufNewFile *.md set filetype=markdown
+  autocmd BufRead,BufNewFile *.py3 set filetype=python
   " set highlighting for java files
   " autocmd BufRead *.java colorscheme monokai
 
