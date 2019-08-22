@@ -90,6 +90,14 @@ full_text=
 [separator]
 
 [crypto]
+label=NEX
+markup=pango
+interval=60
+instance=nash-exchange
+command=~/Workspace/i3blocks-crypto/crypto
+full_text=
+
+[crypto]
 label=N
 markup=pango
 interval=60
@@ -158,6 +166,7 @@ full_text=
 [temperature]
 label=TEMP
 interval=10
+command=~/Workspace/i3blocks/blocks/temperature
 label=
 color=#268bd2
 full_text=
@@ -186,26 +195,26 @@ interval=10
 color=#d33682
 full_text=
 
-[gpu1]
-label=
-command=echo "$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader | sed -n 2p)°C"
-interval=10
-separator=false
-color=#6c71c4
-full_text=
+# [gpu1]
+# label=
+# command=echo "$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader | sed -n 2p)°C"
+# interval=10
+# separator=false
+# color=#6c71c4
+# full_text=
 
-[gpu1]
-command=echo "$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader| sed -n 2p | sed 's/ //g')"
-interval=10
-separator=false
-color=#6c71c4
-full_text=
+# [gpu1]
+# command=echo "$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader| sed -n 2p | sed 's/ //g')"
+# interval=10
+# separator=false
+# color=#6c71c4
+# full_text=
 
-[gpu1]
-command=echo "$(nvidia-smi --query-gpu=memory.used --format=csv,noheader| sed -n 2p | sed 's/ //g')"
-interval=10
-color=#6c71c4
-full_text=
+# [gpu1]
+# command=echo "$(nvidia-smi --query-gpu=memory.used --format=csv,noheader| sed -n 2p | sed 's/ //g')"
+# interval=10
+# color=#6c71c4
+# full_text=
 
 [separator]
 
@@ -292,6 +301,14 @@ instance=5408406
 interval=300
 command=~/Workspace/i3blocks/blocks/weather_fahrenheit
 color=#859900
+full_text=
+
+[separator]
+
+[battery2]
+command=~/Workspace/i3blocks-contrib/battery2/battery2
+markup=pango
+interval=30
 full_text=
 
 [separator]

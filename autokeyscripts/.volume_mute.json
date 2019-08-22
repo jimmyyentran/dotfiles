@@ -1,11 +1,11 @@
 {
     "type": "script",
-    "description": "chrome_ctrl_l_to_f6",
+    "description": "volume_mute",
     "store": {},
     "modes": [
         3
     ],
-    "usageCount": 17,
+    "usageCount": 0,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -18,13 +18,11 @@
         "wordChars": "[\\w]"
     },
     "hotkey": {
-        "modifiers": [
-            "<ctrl>"
-        ],
-        "hotKey": "l"
+        "modifiers": [],
+        "hotKey": "<code121>"
     },
     "filter": {
-        "regex": "chromium",
+        "regex": null,
         "isRecursive": false
     }
 }

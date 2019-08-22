@@ -6,13 +6,15 @@ lock() {
 
 case "$1" in
     lock)
-        lock
+        i3lock-fancy -f Helvetica-Bold && xset dpms force off
         ;;
     logout)
         i3-msg exit
         ;;
     suspend)
-        lock && sleep 1 && xset dpms force off
+        i3lock-fancy -f Helvetica-Bold && systemctl suspend
+        # lock && sleep 1 && systemctl suspend
+        # systemctl suspend
         ;;
     hibernate)
         systemctl hibernate

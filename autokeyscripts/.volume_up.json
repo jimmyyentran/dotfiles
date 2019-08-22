@@ -1,11 +1,9 @@
 {
     "type": "script",
-    "description": "chrome_ctrl_l_to_f6",
+    "description": "volume_up",
     "store": {},
-    "modes": [
-        3
-    ],
-    "usageCount": 17,
+    "modes": [],
+    "usageCount": 2,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
@@ -18,13 +16,11 @@
         "wordChars": "[\\w]"
     },
     "hotkey": {
-        "modifiers": [
-            "<ctrl>"
-        ],
-        "hotKey": "l"
+        "modifiers": [],
+        "hotKey": "<code123>"
     },
     "filter": {
-        "regex": "chromium",
+        "regex": null,
         "isRecursive": false
     }
 }
