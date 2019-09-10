@@ -7,4 +7,4 @@ map m focus_inputbar ":bmark "
 # copy to clipboard
 set selection-clipboard clipboard
 
-
+set font "monospace normal 15"

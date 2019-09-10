@@ -2,10 +2,8 @@
     "type": "script",
     "description": "volume_down_more",
     "store": {},
-    "modes": [
-        3
-    ],
-    "usageCount": 66,
+    "modes": [],
+    "usageCount": 80,
     "prompt": false,
     "omitTrigger": false,
     "showInTrayMenu": false,
