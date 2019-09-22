@@ -103,9 +103,9 @@ awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.left,
     awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
+    -- awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
     --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
@@ -119,7 +119,7 @@ awful.layout.layouts = {
     --awful.layout.suit.corner.se,
     --lain.layout.cascade,
     --lain.layout.cascade.tile,
-    --lain.layout.centerwork,
+    lain.layout.centerwork,
     --lain.layout.centerwork.horizontal,
     --lain.layout.termfair,
     --lain.layout.termfair.center,
@@ -257,12 +257,16 @@ root.buttons(my_table.join(
 globalkeys = my_table.join(
     -- Take a screenshot
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end,
+    -- awful.key({ altkey }, "p", function() os.execute("screenshot") end,
+              -- {description = "take a screenshot", group = "hotkeys"}),
+    awful.key({ modkey, "Control", "Shift" }, "#4", function() awful.util.spawn("screenshot.sh") end,
               {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
     awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
               {description = "lock screen", group = "hotkeys"}),
+    -- awful.key({ altkey, "Control" }, "l", function () awful.spawn.with_shell(scrlocker) end,
+              -- {description = "lock screen", group = "hotkeys"}),
 
     -- Hotkeys
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -344,15 +348,15 @@ globalkeys = my_table.join(
         {description = "go back", group = "client"}),
 
     -- Show/Hide Wibox
-    awful.key({ modkey }, "b", function ()
-            for s in screen do
-                s.mywibox.visible = not s.mywibox.visible
-                if s.mybottomwibox then
-                    s.mybottomwibox.visible = not s.mybottomwibox.visible
-                end
-            end
-        end,
-        {description = "toggle wibox", group = "awesome"}),
+    -- awful.key({ modkey }, "b", function ()
+            -- for s in screen do
+                -- s.mywibox.visible = not s.mywibox.visible
+                -- if s.mybottomwibox then
+                    -- s.mybottomwibox.visible = not s.mybottomwibox.visible
+                -- end
+            -- end
+        -- end,
+        -- {description = "toggle wibox", group = "awesome"}),
 
     -- On the fly useless gaps change
     awful.key({ altkey, "Control" }, "+", function () lain.util.useless_gaps_resize(1) end,
@@ -388,9 +392,9 @@ globalkeys = my_table.join(
               {description = "increase the number of master clients", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
               {description = "decrease the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
+    awful.key({ modkey, "Control", "Shift" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
               {description = "increase the number of columns", group = "layout"}),
-    awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
+    awful.key({ modkey, "Control", "Shift" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
               {description = "decrease the number of columns", group = "layout"}),
     awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
@@ -530,7 +534,7 @@ globalkeys = my_table.join(
               {description = "copy gtk to terminal", group = "hotkeys"}),
 
     -- User programs
-    awful.key({ modkey }, "q", function () awful.spawn(browser) end,
+    awful.key({ modkey }, "b", function () awful.spawn(browser) end,
               {description = "run browser", group = "launcher"}),
     awful.key({ modkey }, "a", function () awful.spawn(guieditor) end,
               {description = "run gui editor", group = "launcher"}),
@@ -577,8 +581,8 @@ globalkeys = my_table.join(
               {description = "lua execute prompt", group = "awesome"}),
 
     -- Change tags
-    awful.key({ modkey, "Control", "Shift" }, "h", awful.tag.viewprev),
-    awful.key({ modkey, "Control", "Shift" }, "l", awful.tag.viewnext)
+    awful.key({ modkey, "Control" }, "h", awful.tag.viewprev),
+    awful.key({ modkey, "Control" }, "l", awful.tag.viewnext)
     --]]
 )
 
@@ -601,13 +605,13 @@ clientkeys = my_table.join(
               {description = "move to screen", group = "client"}),
     awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
-    awful.key({ modkey,           }, "n",
-        function (c)
-            -- The client currently has the input focus, so it cannot be
-            -- minimized, since minimized clients can't have the focus.
-            c.minimized = true
-        end ,
-        {description = "minimize", group = "client"}),
+    -- awful.key({ modkey,           }, "n",
+        -- function (c)
+            -- -- The client currently has the input focus, so it cannot be
+            -- -- minimized, since minimized clients can't have the focus.
+            -- c.minimized = true
+        -- end ,
+        -- {description = "minimize", group = "client"}),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized = not c.maximized
@@ -714,8 +718,8 @@ awful.rules.rules = {
       properties = { titlebars_enabled = false } },
 
     -- Set Firefox to always map on the first tag on screen 1.
-    { rule = { class = "Firefox" },
-      properties = { screen = 1, tag = awful.util.tagnames[1] } },
+    -- { rule = { class = "Firefox" },
+      -- properties = { screen = 1, tag = awful.util.tagnames[1] } },
 
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
