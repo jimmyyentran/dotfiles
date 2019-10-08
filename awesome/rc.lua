@@ -259,7 +259,7 @@ globalkeys = my_table.join(
     -- https://github.com/lcpz/dots/blob/master/bin/screenshot
     -- awful.key({ altkey }, "p", function() os.execute("screenshot") end,
               -- {description = "take a screenshot", group = "hotkeys"}),
-    awful.key({ modkey, "Control", "Shift" }, "#4", function() awful.util.spawn("screenshot.sh") end,
+    awful.key({ altkey, "Control", "Shift" }, "4", function() awful.util.spawn("screenshot.sh") end,
               {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
@@ -617,7 +617,12 @@ clientkeys = my_table.join(
             c.maximized = not c.maximized
             c:raise()
         end ,
-        {description = "maximize", group = "client"})
+        {description = "maximize", group = "client"}),
+    awful.key({ modkey, "Control", "Shift" }, "0",
+        function (c)
+            c.sticky = not c.sticky
+        end,
+        descr_toggle_focus_sticky)
 )
 
 -- Bind all key numbers to tags.
@@ -631,6 +636,7 @@ for i = 1, 9 do
         descr_toggle = {description = "toggle tag #", group = "tag"}
         descr_move = {description = "move focused client to tag #", group = "tag"}
         descr_toggle_focus = {description = "toggle focused client on tag #", group = "tag"}
+        descr_toggle_sticky = {description = "toggle sticky", group = "tag"}
     end
     globalkeys = my_table.join(globalkeys,
         -- View tag only.
@@ -799,4 +805,17 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- possible workaround for tag preservation when switching back to default screen:
 -- https://github.com/lcpz/awesome-copycats/issues/251
+-- }}}
+
+-- {{{ Signals
+do
+  local cmds =
+  {
+    "autokey-gtk",
+  }
+
+  for _,i in pairs(cmds) do
+    awful.util.spawn(i)
+  end
+end
 -- }}}
