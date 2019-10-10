@@ -304,24 +304,28 @@ globalkeys = my_table.join(
         function()
             awful.client.focus.global_bydirection("down")
             if client.focus then client.focus:raise() end
+            awful.util.spawn("move_mouse_to_focus.sh")
         end,
         {description = "focus down", group = "client"}),
     awful.key({ modkey }, "k",
         function()
             awful.client.focus.global_bydirection("up")
             if client.focus then client.focus:raise() end
+            awful.util.spawn("move_mouse_to_focus.sh")
         end,
         {description = "focus up", group = "client"}),
     awful.key({ modkey }, "h",
         function()
             awful.client.focus.global_bydirection("left")
             if client.focus then client.focus:raise() end
+            awful.util.spawn("move_mouse_to_focus.sh")
         end,
         {description = "focus left", group = "client"}),
     awful.key({ modkey }, "l",
         function()
             awful.client.focus.global_bydirection("right")
             if client.focus then client.focus:raise() end
+            awful.util.spawn("move_mouse_to_focus.sh")
         end,
         {description = "focus right", group = "client"}),
     awful.key({ modkey,           }, "w", function () awful.util.mymainmenu:show() end,
