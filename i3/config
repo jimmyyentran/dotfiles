@@ -325,6 +325,12 @@ for_window [instance="gnome-calculator"] border pixel 5
 exec --no-startup-id gnome-calculator
 bindsym $mod+Control+m [instance="gnome-calculator"] scratchpad show; [instance="gnome-calculator"] move position center
 
+for_window [title="Terminal t0"] floating enable
+for_window [title="Terminal t0"] resize set 1777 1000
+for_window [title="Terminal t0"] move scratchpad
+for_window [title="Terminal t0"] border pixel 5
+bindsym $mod+Control+t [title="Terminal t0"] scratchpad show; [title="Terminal t0"] move position center
+
 # for_window [class="Gnome-terminal" title="Taskwarrior"] floating enable
 # for_window [class="Gnome-terminal"title="Taskwarrior"] move scratchpad
 # exec --no-startup-id ~/bin/gnome-terminal-taskwarrior.sh
