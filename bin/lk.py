@@ -19,6 +19,14 @@ def find_problem_file(dir, problem_id):
     raise Exception(f"Problem id {problem_id} not found in {dir}")
 
 
+def remove_file(dir, problem_id):
+    try:
+        file = find_problem_file(dir, problem_id)
+        os.remove(file)
+    except:
+        print(f"Can't find {problem_id} in {dir}")
+
+
 def get_testcases(cmd_output):
     TARGET_WORDS = ["Testcase Example:", "Input:"]
     example_lines = [line for line in cmd_output.split('\n') if any(x in line for x in TARGET_WORDS)]
@@ -36,6 +44,7 @@ def get_testcases(cmd_output):
     for tw in TARGET_WORDS:
         ret_example_lines = ret_example_lines.replace(tw, "")
     return ret_example_lines
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Say hello')
@@ -61,13 +70,11 @@ if __name__ == '__main__':
         cmd_output = p.decode("utf-8")
         print(cmd_output)
     elif args.remove:
-        code_file = find_problem_file(CODE_DIR, args.remove)
-        test_file = find_problem_file(TEST_DIR, args.remove)
-        os.remove(code_file)
-        os.remove(test_file)
+        remove_file(CODE_DIR, args.remove)
+        remove_file(TEST_DIR, args.remove)
         print("Remove successfully")
     elif args.gen:
-        p = subprocess.check_output([CMD, "show", "-q", args.gen, "-g", "-l", DEFAULT_LANGUAGE], cwd=CODE_DIR)
+        p = subprocess.check_output([CMD, "show", "-q", args.gen, "-gx", "-l", DEFAULT_LANGUAGE], cwd=CODE_DIR)
         cmd_output = p.decode("utf-8")
         cmd_output = cmd_output.replace('&amp;', '&').replace('&lt;', '<').replace('&gt;', '>') \
             .replace('&quot;', '"').replace('&#39;', "'").replace("&nbsp;", "")
@@ -79,8 +86,6 @@ if __name__ == '__main__':
         code_file_pre, ext = os.path.splitext(code_file_base)
         text_file_base = code_file_pre + '.test'
 
-        # example_lines = [line for line in cmd_output.split('\n') if any(x in line for x in ("Testcase", "Input"))]
-        # example_lines = '\n'.join(example_lines)
         example_lines = get_testcases(cmd_output)
 
         with open(os.path.join(TEST_DIR, text_file_base), 'w') as temp_file:
